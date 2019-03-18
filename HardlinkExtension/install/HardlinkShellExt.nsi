@@ -721,15 +721,15 @@ Section
     Rename $INSTDIR\32\HardlinkShellExt.dll $INSTDIR\32\HardlinkShellExt.dll.$2$1$0$4$5$6
 
     SetOutPath $INSTDIR\32
-    File ..\bin\${PLATTFORM_ALTERNATIVE}\${CONFIGURATION}\HardlinkShellExt.dll
+    File ..\..\bin\${PLATTFORM_ALTERNATIVE}\${CONFIGURATION}\HardlinkShellExt.dll
     File ..\..\bin\${PLATTFORM_ALTERNATIVE}\${CONFIGURATION}\symlink.exe
   !endif
 
   ; go on with the normal part
   ;
   SetOutPath $INSTDIR
-  File ..\bin\${PLATTFORM}\${CONFIGURATION}\HardlinkShellExt.dll
-  File ..\..\LSEConfig\bin\${PLATTFORM}\${CONFIGURATION}\LSEConfig.exe
+  File ..\..\bin\${PLATTFORM}\${CONFIGURATION}\HardlinkShellExt.dll
+  File ..\..\bin\${PLATTFORM}\${CONFIGURATION}\LSEConfig.exe
 
   ; We need an extra symlink.exe with Windows7 to perform the symlinks, but we also need it under XP 
   ; with Backup Mode accquiring SE_DEBUG_PRIVILEGE
