@@ -20,7 +20,7 @@
     <ClInclude Include="timestamp.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Shared\getopt\ultragetopt-0.6.0\ultragetopt.h">
+    <ClInclude Include="..\Shared\ultragetopt.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -31,7 +31,7 @@
     <ClCompile Include="timestamp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Shared\getopt\ultragetopt-0.6.0\ultragetopt.c">
+    <ClCompile Include="..\Shared\ultragetopt.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

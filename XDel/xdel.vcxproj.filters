@@ -20,18 +20,18 @@
     <ClCompile Include="StdAfx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Shared\getopt\ultragetopt-0.6.0\ultragetopt.c">
+    <ClCompile Include="xdel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="xdel.cpp">
+    <ClCompile Include="..\Shared\ultragetopt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Shared\ultragetopt.h">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StdAfx.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Shared\getopt\ultragetopt-0.6.0\ultragetopt.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="resource.h">
