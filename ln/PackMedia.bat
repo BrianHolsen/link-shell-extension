@@ -1,6 +1,6 @@
 
 set BJKHOME=%~dp0
-set zip=c:\tools\zip.exe
+set zip=%BJKHOME%\..\tools\zip.exe
 
 
 set HARDLINKHOME=..
@@ -17,6 +17,13 @@ pushd Doc
 Call :ZipAllFiles %MEDIA%\%ARCHIVE%
 popd
 
+set ARCHIVE=ln_dbg.zip
+pushd %BINDIR%
+%ZIP% %MEDIA%\%ARCHIVE% "ln.exe"
+%ZIP% %MEDIA%\%ARCHIVE% "ln.pdb"
+popd
+
+
 REM x64
 REM
 set BINDIR=%HARDLINKHOME%\Bin\x64\Release
@@ -26,6 +33,12 @@ pushd %BINDIR%
 popd
 pushd Doc
 Call :ZipAllFiles %MEDIA%\%ARCHIVE%
+popd
+
+set ARCHIVE=ln64_dbg.zip
+pushd %BINDIR%
+%ZIP% %MEDIA%\%ARCHIVE% "ln.exe"
+%ZIP% %MEDIA%\%ARCHIVE% "ln.pdb"
 popd
 
 :ausmausraus
@@ -95,17 +108,3 @@ goto :EOF
 %ZIP% %1 Blog\blog.html
 
 exit /b
-
-
-
-
-
-
-
-
-
-
-
-
-
-
