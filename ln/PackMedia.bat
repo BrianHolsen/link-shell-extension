@@ -32,7 +32,7 @@ call :ZipDebug %MEDIA%\%ARCHIVE% %BINDIR%
 REM
 REM wait 10 seconds
 REM
-@ping 127.0.0.1 -n 10 -w 5000 > nul
+REM @ping 127.0.0.1 -n 10 -w 5000 > nul
 
 goto :EOF
 
