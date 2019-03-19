@@ -9,35 +9,23 @@ REM x86
 REM
 set BINDIR=%HARDLINKHOME%\Bin\win32\Release
 set ARCHIVE=dupemerge.zip
-pushd %BINDIR%
-%ZIP% %MEDIA%\%ARCHIVE% "dupemerge.exe"
-popd
-pushd Doc
-Call :ZipAllFiles %ARCHIVE%
-popd
+call :ZipBinary %MEDIA%\%ARCHIVE% %BINDIR%
+call :ZipAllFiles %MEDIA%\%ARCHIVE%
 
 set ARCHIVE=dupemerge_dbg.zip
-pushd %BINDIR%
-%ZIP% %MEDIA%\%ARCHIVE% "dupemerge.exe"
-%ZIP% %MEDIA%\%ARCHIVE% "dupemerge.pdb"
-popd
+call :ZipBinary %MEDIA%\%ARCHIVE% %BINDIR%
+call :ZipDebug %MEDIA%\%ARCHIVE% %BINDIR%
 
 REM x64
 REM
 set BINDIR=%HARDLINKHOME%\Bin\x64\Release
 set ARCHIVE=dupemerge64.zip
-pushd %BINDIR%
-%ZIP% %MEDIA%\%ARCHIVE% "dupemerge.exe"
-popd
-pushd Doc
-Call :ZipAllFiles %ARCHIVE%
-popd
+call :ZipBinary %MEDIA%\%ARCHIVE% %BINDIR%
+call :ZipAllFiles %MEDIA%\%ARCHIVE%
 
 set ARCHIVE=dupemerge64_dbg.zip
-pushd %BINDIR%
-%ZIP% %MEDIA%\%ARCHIVE% "dupemerge.exe"
-%ZIP% %MEDIA%\%ARCHIVE% "dupemerge.pdb"
-popd
+call :ZipBinary %MEDIA%\%ARCHIVE% %BINDIR%
+call :ZipDebug %MEDIA%\%ARCHIVE% %BINDIR%
 
 :ausmausraus
 
@@ -49,13 +37,25 @@ REM
 goto :EOF
 
 :ZipAllFiles
-%ZIP% %1 dupemerge.html
-%ZIP% %1 dupemerge.png
-%ZIP% %1 amazon.de.png
-%ZIP% %1 bitcoinlogo.png
-%ZIP% %1 bitcoinlseqr.png
-%ZIP% %1 license.txt
-%ZIP% %1 license_tre.txt
-%ZIP% %1 license_ultragetop.txt
-
+%ZIP% %1 Doc\dupemerge.html
+%ZIP% %1 Doc\dupemerge.png
+%ZIP% %1 Doc\amazon.de.png
+%ZIP% %1 Doc\bitcoinlogo.png
+%ZIP% %1 Doc\bitcoinlseqr.png
+%ZIP% %1 Doc\license.txt
+%ZIP% %1 Doc\license_tre.txt
+%ZIP% %1 Doc\license_ultragetop.txt
 exit /b
+
+:ZipDebug
+pushd %2
+%ZIP% %1 "dupemerge.pdb"
+popd
+exit /b
+
+:ZipBinary
+pushd %2
+%ZIP% %1 "dupemerge.exe"
+popd
+exit /b
+

@@ -2,7 +2,6 @@
 set BJKHOME=%~dp0
 set zip=%BJKHOME%\..\tools\zip.exe
 
-
 set HARDLINKHOME=..
 set MEDIA=%BJKHOME%\..\Media
 
@@ -10,36 +9,23 @@ REM x86
 REM
 set BINDIR=%HARDLINKHOME%\Bin\win32\Release
 set ARCHIVE=ln.zip
-pushd %BINDIR%
-%ZIP% %MEDIA%\%ARCHIVE% "ln.exe"
-popd
-pushd Doc
-Call :ZipAllFiles %MEDIA%\%ARCHIVE%
-popd
+call :ZipBinary %MEDIA%\%ARCHIVE% %BINDIR%
+call :ZipAllFiles %MEDIA%\%ARCHIVE%
 
 set ARCHIVE=ln_dbg.zip
-pushd %BINDIR%
-%ZIP% %MEDIA%\%ARCHIVE% "ln.exe"
-%ZIP% %MEDIA%\%ARCHIVE% "ln.pdb"
-popd
-
+call :ZipBinary %MEDIA%\%ARCHIVE% %BINDIR%
+call :ZipDebug %MEDIA%\%ARCHIVE% %BINDIR%
 
 REM x64
 REM
 set BINDIR=%HARDLINKHOME%\Bin\x64\Release
 set ARCHIVE=ln64.zip
-pushd %BINDIR%
-%ZIP% %MEDIA%\%ARCHIVE% "ln.exe"
-popd
-pushd Doc
-Call :ZipAllFiles %MEDIA%\%ARCHIVE%
-popd
+call :ZipBinary %MEDIA%\%ARCHIVE% %BINDIR%
+call :ZipAllFiles %MEDIA%\%ARCHIVE%
 
 set ARCHIVE=ln64_dbg.zip
-pushd %BINDIR%
-%ZIP% %MEDIA%\%ARCHIVE% "ln.exe"
-%ZIP% %MEDIA%\%ARCHIVE% "ln.pdb"
-popd
+call :ZipBinary %MEDIA%\%ARCHIVE% %BINDIR%
+call :ZipDebug %MEDIA%\%ARCHIVE% %BINDIR%
 
 :ausmausraus
 
@@ -53,58 +39,69 @@ goto :EOF
 :ZipAllFiles
 %ZIP% %1 ln.html
 
-%ZIP% %1 1023limit.png
-%ZIP% %1 amazon.de.png
-%ZIP% %1 anchorpath.png
-%ZIP% %1 bitcoinlogo.png
-%ZIP% %1 bitcoinlseqr.png
-%ZIP% %1 deloreanmerge.png
-%ZIP% %1 delete.png
-%ZIP% %1 deletefollow.png
-%ZIP% %1 hardlinkcloneshowto.png
-%ZIP% %1 hardlinkclonessmart.png
-%ZIP% %1 junctionshowto.png
-%ZIP% %1 ln.png
-%ZIP% %1 mappednetworkdrive.png
-%ZIP% %1 mountpointssplice.png
-%ZIP% %1 multiplesource.png
-%ZIP% %1 nestedreparsepoints.png
-%ZIP% %1 ontheflydupemerge.png
-%ZIP% %1 outerjunctionscrop.png
-%ZIP% %1 outerjunctionssplice.png
-%ZIP% %1 outerjunctionsunroll.png
-%ZIP% %1 outerjunctionsunrollcircularity.png
-%ZIP% %1 outerjunctionsunrolldiskid.png
-%ZIP% %1 outerjunctionsunrollinner.png
-%ZIP% %1 outerjunctionsunrollinnernested.png
-%ZIP% %1 outerjunctionsunrollinnersymlink.png
-%ZIP% %1 outerjunctionsunrollmultitraverse.png
-%ZIP% %1 smartcopyhowto.png
-%ZIP% %1 smartmovehowto.png
-%ZIP% %1 symboliclinkhowto.png
-%ZIP% %1 symlinkssmart.png
-%ZIP% %1 zeiteisen.png
+%ZIP% %1 Doc\Doc\1023limit.png
+%ZIP% %1 Doc\amazon.de.png
+%ZIP% %1 Doc\anchorpath.png
+%ZIP% %1 Doc\bitcoinlogo.png
+%ZIP% %1 Doc\bitcoinlseqr.png
+%ZIP% %1 Doc\deloreanmerge.png
+%ZIP% %1 Doc\delete.png
+%ZIP% %1 Doc\deletefollow.png
+%ZIP% %1 Doc\hardlinkcloneshowto.png
+%ZIP% %1 Doc\hardlinkclonessmart.png
+%ZIP% %1 Doc\junctionshowto.png
+%ZIP% %1 Doc\ln.png
+%ZIP% %1 Doc\mappednetworkdrive.png
+%ZIP% %1 Doc\mountpointssplice.png
+%ZIP% %1 Doc\multiplesource.png
+%ZIP% %1 Doc\nestedreparsepoints.png
+%ZIP% %1 Doc\ontheflydupemerge.png
+%ZIP% %1 Doc\outerjunctionscrop.png
+%ZIP% %1 Doc\outerjunctionssplice.png
+%ZIP% %1 Doc\outerjunctionsunroll.png
+%ZIP% %1 Doc\outerjunctionsunrollcircularity.png
+%ZIP% %1 Doc\outerjunctionsunrolldiskid.png
+%ZIP% %1 Doc\outerjunctionsunrollinner.png
+%ZIP% %1 Doc\outerjunctionsunrollinnernested.png
+%ZIP% %1 Doc\outerjunctionsunrollinnersymlink.png
+%ZIP% %1 Doc\outerjunctionsunrollmultitraverse.png
+%ZIP% %1 Doc\smartcopyhowto.png
+%ZIP% %1 Doc\smartmovehowto.png
+%ZIP% %1 Doc\symboliclinkhowto.png
+%ZIP% %1 Doc\symlinkssmart.png
+%ZIP% %1 Doc\zeiteisen.png
 
-%ZIP% %1 bat\DeleteAllHardlinks.bat
-%ZIP% %1 bat\DeLoreanCopy.bat
-%ZIP% %1 bat\DeLoreanHanoi.bat
-%ZIP% %1 bat\vss-exec.cmd
-%ZIP% %1 bat\vss_unc.cmd
-%ZIP% %1 bat\vss_raw.cmd
-%ZIP% %1 bat\vss_drivecopy.cmd
-%ZIP% %1 bat\QueryPath.cmd
-%ZIP% %1 bat\vshadow.zip
-%ZIP% %1 bat\dosdev.exe
+%ZIP% %1 Doc\bat\DeleteAllHardlinks.bat
+%ZIP% %1 Doc\bat\DeLoreanCopy.bat
+%ZIP% %1 Doc\bat\DeLoreanHanoi.bat
+%ZIP% %1 Doc\bat\vss-exec.cmd
+%ZIP% %1 Doc\bat\vss_unc.cmd
+%ZIP% %1 Doc\bat\vss_raw.cmd
+%ZIP% %1 Doc\bat\vss_drivecopy.cmd
+%ZIP% %1 Doc\bat\QueryPath.cmd
+%ZIP% %1 Doc\bat\vshadow.zip
+%ZIP% %1 Doc\bat\dosdev.exe
   
-%ZIP% %1 license.txt
-%ZIP% %1 license_tre.txt
-%ZIP% %1 license_ultragetop.txt
+%ZIP% %1 Doc\license.txt
+%ZIP% %1 Doc\license_tre.txt
+%ZIP% %1 Doc\license_ultragetop.txt
 
-%ZIP% %1 Blog\blog.html
-%ZIP% %1 Blog\blog.png
-%ZIP% %1 Blog\deloreandelete.png
-%ZIP% %1 blog\deloreandelete_sequence.png
-%ZIP% %1 Blog\lnbirthday.png
-%ZIP% %1 Blog\blog.html
+%ZIP% %1 Doc\Blog\blog.html
+%ZIP% %1 Doc\Blog\blog.png
+%ZIP% %1 Doc\Blog\deloreandelete.png
+%ZIP% %1 Doc\blog\deloreandelete_sequence.png
+%ZIP% %1 Doc\Blog\lnbirthday.png
+%ZIP% %1 Doc\Blog\blog.html
+exit /b
 
+:ZipDebug
+pushd %2
+%ZIP% %1 "ln.pdb"
+popd
+exit /b
+
+:ZipBinary
+pushd %2
+%ZIP% %1 "ln.exe"
+popd
 exit /b
