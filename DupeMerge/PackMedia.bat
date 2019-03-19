@@ -1,5 +1,6 @@
 
 set BJKHOME=%~dp0
+set VERSION=_%1
 set zip=%BJKHOME%\..\tools\zip.exe
 
 set HARDLINKHOME=..
@@ -8,22 +9,24 @@ set MEDIA=%BJKHOME%\..\Media
 REM x86
 REM
 set BINDIR=%HARDLINKHOME%\Bin\win32\Release
-set ARCHIVE=dupemerge.zip
+set ARCHIVE=dupemerge%VERSION%.zip
 call :ZipBinary %MEDIA%\%ARCHIVE% %BINDIR%
 call :ZipAllFiles %MEDIA%\%ARCHIVE%
+%BINDIR%\ln.exe %MEDIA%\%ARCHIVE% %MEDIA%\dupemerge.zip > nul
 
-set ARCHIVE=dupemerge_dbg.zip
+set ARCHIVE=dupemerge%VERSION%_dbg.zip
 call :ZipBinary %MEDIA%\%ARCHIVE% %BINDIR%
 call :ZipDebug %MEDIA%\%ARCHIVE% %BINDIR%
 
 REM x64
 REM
 set BINDIR=%HARDLINKHOME%\Bin\x64\Release
-set ARCHIVE=dupemerge64.zip
+set ARCHIVE=dupemerge64%VERSION%.zip
 call :ZipBinary %MEDIA%\%ARCHIVE% %BINDIR%
 call :ZipAllFiles %MEDIA%\%ARCHIVE%
+%BINDIR%\ln.exe %MEDIA%\%ARCHIVE% %MEDIA%\dupemerge64.zip > nul
 
-set ARCHIVE=dupemerge64_dbg.zip
+set ARCHIVE=dupemerge64%VERSION%_dbg.zip
 call :ZipBinary %MEDIA%\%ARCHIVE% %BINDIR%
 call :ZipDebug %MEDIA%\%ARCHIVE% %BINDIR%
 

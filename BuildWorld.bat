@@ -46,13 +46,13 @@ popd
 REM Pack ln.exe
 REM
 pushd ln
-call PackMedia.bat
+call PackMedia.bat %MAJOR_VERSION%%MINOR_VERSION%%PATCH_VERSION%%HOTFIX_VERSION%
 popd
 
 REM dupemerge.exe
 REM
 pushd dupemerge
-call PackMedia.bat
+call PackMedia.bat %MAJOR_VERSION%%MINOR_VERSION%%PATCH_VERSION%%HOTFIX_VERSION%
 popd
 
 

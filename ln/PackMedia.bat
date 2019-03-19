@@ -1,5 +1,6 @@
 
 set BJKHOME=%~dp0
+set VERSION=_%1
 set zip=%BJKHOME%\..\tools\zip.exe
 
 set HARDLINKHOME=..
@@ -8,22 +9,24 @@ set MEDIA=%BJKHOME%\..\Media
 REM x86
 REM
 set BINDIR=%HARDLINKHOME%\Bin\win32\Release
-set ARCHIVE=ln.zip
+set ARCHIVE=ln%VERSION%.zip
 call :ZipBinary %MEDIA%\%ARCHIVE% %BINDIR%
 call :ZipAllFiles %MEDIA%\%ARCHIVE%
+%BINDIR%\ln.exe %MEDIA%\%ARCHIVE% %MEDIA%\ln.zip > nul
 
-set ARCHIVE=ln_dbg.zip
+set ARCHIVE=ln%VERSION%_dbg.zip
 call :ZipBinary %MEDIA%\%ARCHIVE% %BINDIR%
 call :ZipDebug %MEDIA%\%ARCHIVE% %BINDIR%
 
 REM x64
 REM
 set BINDIR=%HARDLINKHOME%\Bin\x64\Release
-set ARCHIVE=ln64.zip
+set ARCHIVE=ln64%VERSION%.zip
 call :ZipBinary %MEDIA%\%ARCHIVE% %BINDIR%
 call :ZipAllFiles %MEDIA%\%ARCHIVE%
+%BINDIR%\ln.exe %MEDIA%\%ARCHIVE% %MEDIA%\ln64.zip > nul
 
-set ARCHIVE=ln64_dbg.zip
+set ARCHIVE=ln64%VERSION%_dbg.zip
 call :ZipBinary %MEDIA%\%ARCHIVE% %BINDIR%
 call :ZipDebug %MEDIA%\%ARCHIVE% %BINDIR%
 
@@ -39,7 +42,7 @@ goto :EOF
 :ZipAllFiles
 %ZIP% %1 ln.html
 
-%ZIP% %1 Doc\Doc\1023limit.png
+%ZIP% %1 Doc\1023limit.png
 %ZIP% %1 Doc\amazon.de.png
 %ZIP% %1 Doc\anchorpath.png
 %ZIP% %1 Doc\bitcoinlogo.png
@@ -71,16 +74,16 @@ goto :EOF
 %ZIP% %1 Doc\symlinkssmart.png
 %ZIP% %1 Doc\zeiteisen.png
 
-%ZIP% %1 Doc\bat\DeleteAllHardlinks.bat
-%ZIP% %1 Doc\bat\DeLoreanCopy.bat
-%ZIP% %1 Doc\bat\DeLoreanHanoi.bat
-%ZIP% %1 Doc\bat\vss-exec.cmd
-%ZIP% %1 Doc\bat\vss_unc.cmd
-%ZIP% %1 Doc\bat\vss_raw.cmd
-%ZIP% %1 Doc\bat\vss_drivecopy.cmd
-%ZIP% %1 Doc\bat\QueryPath.cmd
-%ZIP% %1 Doc\bat\vshadow.zip
-%ZIP% %1 Doc\bat\dosdev.exe
+%ZIP% %1 bat\DeleteAllHardlinks.bat
+%ZIP% %1 bat\DeLoreanCopy.bat
+%ZIP% %1 bat\DeLoreanHanoi.bat
+%ZIP% %1 bat\vss-exec.cmd
+%ZIP% %1 bat\vss_unc.cmd
+%ZIP% %1 bat\vss_raw.cmd
+%ZIP% %1 bat\vss_drivecopy.cmd
+%ZIP% %1 bat\QueryPath.cmd
+%ZIP% %1 bat\vshadow.zip
+%ZIP% %1 bat\dosdev.exe
   
 %ZIP% %1 Doc\license.txt
 %ZIP% %1 Doc\license_tre.txt
