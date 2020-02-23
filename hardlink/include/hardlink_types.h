@@ -197,8 +197,9 @@ enum Operations
 
 #define SYMLINK_FLAG_FILE 	                    0x00
 #define SYMLINK_FLAG_DIRECTORY 	                0x01
-#define SYMLINK_FLAG_RELATIVE 	                0x02
+#define SYMLINK_FLAG_RELATIVE 	                0x02        //--SuLaus: Attention: In Microsoft documentation this define is: SYMLINK_FLAG_RELATIVE 0x00000001 When this Flags value is set, the substitute name is a path name relative to the directory containing the symbolic link.
 
+#pragma warning(disable:4005) //Macro re-definition of SYMLINK_FLAG_ALLOW_UNPRIVILEGED_CREATE and SYMBOLIC_LINK_FLAG_ALLOW_UNPRIVILEGED_CREATE
 // With Windows10 > 14972 SYMBOLIC_LINK_FLAG_ALLOW_UNPRIVILEGED_CREATE came up as flag and was defined to be 0x02
 // Unfortunatley all my framework used 0x02 for 10 years to flag that a relative symlink should be created. Grmpf.
 // So we have to define our own _ALLOW_UNPRIVILEGED_CREATE value as 0x04, route it through the layers and the very
@@ -207,6 +208,7 @@ enum Operations
 
 // And due to still running with VS2005 we have to define that new values too. sic
 #define SYMBOLIC_LINK_FLAG_ALLOW_UNPRIVILEGED_CREATE 0x02
+#pragma warning(default:4005)
 
 #define FILE_ATTRIBUTE_DELAYED_REPARSE_POINT  0x00008000
 #define FILE_ATTRIBUTE_NESTED_REPARSE_POINT  0x00010000  
@@ -251,13 +253,18 @@ public:
   int           DriveType;
   int           FileAttribute;
   int           Flags;
+  //-- Su Laus Extension for reparse point info
+  ULONG        ReparseTag;  // reparseTag from REPARSE_DATA_BUFFER
+  bool         blnIsRelativeSymlink;
+  wstring  ArgvReparseTarget;  // target of reparse point, if it exists
+
 
   enum {
     Created = 1,
     Anchor = 2,
   };
 
-  _ArgvPath() : DriveType(0), FileAttribute(0), Flags(0) {};
+  _ArgvPath() : DriveType(0), FileAttribute(0), Flags(0) , ReparseTag(0), blnIsRelativeSymlink(0) {};
 };
 
 

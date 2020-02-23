@@ -878,6 +878,7 @@ CreateJunction(
 )
 {
   DWORD		RetVal = ERROR_SUCCESS;
+  bool      blnLinkDirectoryAlreadyExisted = false;
   // Size assumption: We have to copy 2 path with each HUGE_PATH long onto the structure. So we take 3 times HUGE_PATH
   char		reparseBuffer[HUGE_PATH * 3];
   WCHAR		directoryFileName[HUGE_PATH];
@@ -918,6 +919,8 @@ CreateJunction(
       return LastError;
     else
     {
+      // Dont delete directory below, if it already existed.
+      blnLinkDirectoryAlreadyExisted = true;
       // If a Junction already exists, we have to check if it
       // Points to the same location, and if yes then return 
       // ERROR_ALREADY_EXISTS
@@ -1001,7 +1004,9 @@ CreateJunction(
   {	
     RetVal = GetLastError();
     CloseHandle( hFile );
-    BOOL bb = RemoveDirectory( LinkDirectory );
+    if (!blnLinkDirectoryAlreadyExisted) {
+        BOOL bb = RemoveDirectory(LinkDirectory);
+    }
     return RetVal;
   }
 
@@ -1015,7 +1020,9 @@ CreateJunction(
 //
 // This routine creates a NTFS SymbolicLink, using the undocumented
 // FSCTL_SET_REPARSE_POINT structure Win2K uses for mount points
-// and junctions. It allows to create dead symbolic links
+// and junctions. It allows to create dead symbolic links.
+//
+// dwFlags are: SYMLINK_FLAG_RELATIVE; SYMLINK_FLAG_DIRECTORY; SYMLINK_FLAG_ALLOW_UNPRIVILEGED_CREATE
 //
 //--------------------------------------------------------------------
 int
@@ -1026,6 +1033,7 @@ CreateSymboliclinkRaw(
   __in    const DWORD   dwFlags
 )
 {
+  bool      blnLinkDirectoryAlreadyExisted = false;
   DWORD		RetVal = ERROR_SUCCESS;
   char		reparseBuffer[HUGE_PATH * 3];
   WCHAR		SymlinkFileName[HUGE_PATH];
@@ -1092,6 +1100,8 @@ CreateSymboliclinkRaw(
 	    targetNativeFileName[lenSub - 1] = 0;
   }
 
+  // Check, if target file/directory already existed so that this is not deleted below
+  blnLinkDirectoryAlreadyExisted = PathFileExistsW(lpTargetFileName);
   //
   // Create the link - ignore errors since it might already exist
   //
@@ -1100,14 +1110,15 @@ CreateSymboliclinkRaw(
     if (!CreateDirectory(lpTargetFileName, NULL))
     {
       int r = GetLastError();
-      return r;
+      if (ERROR_ALREADY_EXISTS != r)
+          return r;
     }
     hFile = CreateFile( lpTargetFileName, 
       GENERIC_WRITE|GENERIC_READ,
-      FILE_SHARE_READ,
+      FILE_SHARE_READ| FILE_SHARE_WRITE,
       NULL, 
       OPEN_EXISTING,
-      FILE_FLAG_BACKUP_SEMANTICS,
+      FILE_FLAG_BACKUP_SEMANTICS | FILE_FLAG_OPEN_REPARSE_POINT,
       NULL );
   }
   else
@@ -1126,11 +1137,11 @@ CreateSymboliclinkRaw(
   if( hFile == INVALID_HANDLE_VALUE) 
     return LastError;
 
-  if (ERROR_ALREADY_EXISTS == LastError)
-  {
-    CloseHandle(hFile);
-    return LastError;
-  }
+  //if (ERROR_ALREADY_EXISTS == LastError)
+  //{
+  //  CloseHandle(hFile);
+  //  return LastError;
+  //}
 
   //
   // Build the reparse info
@@ -1168,10 +1179,14 @@ CreateSymboliclinkRaw(
   {	
     RetVal = GetLastError();
     CloseHandle( hFile );
-    if (dwFlags & SYMLINK_FLAG_DIRECTORY)
-      RemoveDirectory(lpSymlinkFileName);
-    else
-      DeleteFile(lpSymlinkFileName);
+    if (!blnLinkDirectoryAlreadyExisted) {
+        if (dwFlags & SYMLINK_FLAG_DIRECTORY)
+            // RemoveDirectory(lpSymlinkFileName);  dont delete the SymlinkFilename pointing to the target directory
+            RemoveDirectory(lpTargetFileName);
+        else
+            //DeleteFile(lpSymlinkFileName);   dont delete the SymlinkFilename pointing to the target directory
+            DeleteFile(lpTargetFileName);
+    }
     return RetVal;
   }
   CloseHandle( hFile );

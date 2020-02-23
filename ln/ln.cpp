@@ -8,6 +8,9 @@
 
 #include "ln.h"
 
+#include "RemapToInnerLink.h"   //--Su Laus extension
+
+
 #pragma hdrstop
 #pragma comment( lib, "advapi32.lib" )
 
@@ -87,7 +90,10 @@ static struct option	long_options[] =
   { "follow", optional_argument, NULL, '\0' },
  
   { "followregexp", optional_argument, NULL, '\0' },
-  { 0, 0, 0, 0 }
+
+  { "junctionremap", required_argument, NULL, '\0' },	// Remaps Junction/Symlink to next fitting directory / file
+  { "junctionremapall", required_argument, NULL, '\0'}, // Remaps all found Junction/Symlink below the given folder to next fitting directory / file
+  {0, 0, 0, 0}
 };
 
 
@@ -1765,11 +1771,12 @@ CheckArgument(
         aArgvPath->FileAttribute = GetFileAttributes(ArgvPath);
       }
 
-      aArgvPath->Argv = ArgvPath;
-		}
+          aArgvPath->Argv = ArgvPath;
+          bool blnRetVal = SetReparseInfo(*aArgvPath);
+    }
 
     return RetVal;
-}
+} //-- CheckArgument() --
 
 int
 Usage()
@@ -1946,6 +1953,8 @@ wmain(
     bool  TimeTolerance = false;
     int   TimeToleranceValue = 0;
     bool  ProbeFs = false;
+    bool JunctionRemap       = false;
+    bool JunctionRemapAll    = false;
     bool  EnumVolumes = false;
     int   HardlinkLimitValue = cMaxHardlinkLimit;
     int   gGenerateHardlinks = 0;
@@ -3127,6 +3136,22 @@ wmain(
             }
             break;
 
+            // --JunctionRemap
+            case cBaseJustLongOpts + 0x28:
+                wcscpy_s(Argv1, HUGE_PATH, argv[optind - 1]);
+                Argv2[0]      = 0x00;
+                JunctionRemap = true;
+                fwprintf(gStdOutFile, L"JunctionRemap '%S'\n", Argv1);
+                break;
+
+            // --JunctionRemapAll
+            case cBaseJustLongOpts + 0x29:
+                wcscpy_s(Argv1, HUGE_PATH, argv[optind - 1]);
+                Argv2[0]      = 0x00;
+                JunctionRemapAll = true;
+                fwprintf(gStdOutFile, L"JunctionRemapAll '%S'\n", Argv1);
+                break;
+
             default:
               fwprintf (gStdOutFile, L"Unknown LongOpt %d:'%S'\n", longind, long_options[longind].name);
             break;
@@ -3195,7 +3220,7 @@ wmain(
     }
 
 		// All the listed option prepare Argv1 and Argv2 itself above, or are just switches
-		if ( !(recursive ^ enumerate ^ SmartCopy ^ list ^ junction ^ noitcnuj ^ SmartMove ^ DeepPathCreate ^ DeepPathDelete ^ delorean ^ SmartMirror ^ SmartRename ^ bTrueSize ^ AdsDev ^ ProbeFs ^ HardlinkMirror ^ DeloreanMerge ^ DeloreanDelete) )
+    if (!(recursive ^ enumerate ^ SmartCopy ^ list ^ junction ^ noitcnuj ^ SmartMove ^ DeepPathCreate ^ DeepPathDelete ^ delorean ^ SmartMirror ^ SmartRename ^ bTrueSize ^ AdsDev ^ ProbeFs ^ HardlinkMirror ^ DeloreanMerge ^ DeloreanDelete ^ JunctionRemap ^ JunctionRemapAll))
 		{
 			// Apply this only if no options 'ln source dest' is applied
 			if (argc - optind == 2)
@@ -3715,6 +3740,45 @@ wmain(
       else
         Exit (ERR_FILE_DOES_NOT_EXIST);
     }
+
+    //
+    // --JunctionRemap ToInnerLink---      //--Su Laus extension
+    //
+    if (JunctionRemap) {
+        bool blnRet;
+        //int  intRet;
+        //PWSTR wzPtr;
+        //wstring wInnerLinkPath;
+        /*-- remaps a junction to its next fitting directory, which is not a reparse point --*/
+        if (INVALID_FILE_ATTRIBUTES != Argv1Path.FileAttribute) {
+            // ArgvPath properties and .ArgvReparseTarget have to be set before calling ReplaceToInnerJunction()
+            blnRet = ReplaceToInnerJunction(Argv1Path);
+            if (blnRet)
+                Exit(ERR_SUCCESS);
+            else
+                Exit(ERR_CREATE_HARDLINK_FAILED);
+        } else
+            Exit(ERR_FILE_DOES_NOT_EXIST);
+    } // if(JunctionRemap) ToInnerLink
+
+
+    // --JunctionRemapALL ToInnerLink---      //--Su Laus extension
+    //
+    if (JunctionRemapAll) {
+        bool blnRet;
+        /*-- remaps all found junction below the given folder to its next fitting directory, which is not a reparse point --*/
+        if (INVALID_FILE_ATTRIBUTES != Argv1Path.FileAttribute) {
+            if (((Argv1Path.FileAttribute & FILE_ATTRIBUTE_REPARSE_POINT) == 0)) {
+                blnRet = ReplaceToInnerJunctionAll(Argv1Path.Argv);
+                if (blnRet) Exit(ERR_SUCCESS);
+                else Exit(ERR_CREATE_HARDLINK_FAILED);
+            } else {
+                Exit(ERR_OPERATION_NOT_SUPPORTED);
+            }
+        } else
+            Exit(ERR_FILE_DOES_NOT_EXIST);
+    } // if(JunctionRemapAll) ToInnerLink
+
 
     //
     // --truesize

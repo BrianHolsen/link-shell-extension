@@ -211,6 +211,7 @@
     <ClCompile Include="src\Multilang.cpp" />
     <ClCompile Include="src\NtBase.cpp" />
     <ClCompile Include="src\Progressbar.cpp" />
+    <ClCompile Include="src\RemapToInnerLink.cpp" />
     <ClCompile Include="src\StdAfx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -233,6 +234,7 @@
     <ClInclude Include="include\NtBase.h" />
     <ClInclude Include="include\ntsysteminfo.h" />
     <ClInclude Include="include\Progressbar.h" />
+    <ClInclude Include="include\RemapToInnerLink.h" />
     <ClInclude Include="include\UACReuse.h" />
     <ClInclude Include="src\md5.h" />
     <ClInclude Include="include\MmfObject.h" />

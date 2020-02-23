@@ -4310,7 +4310,7 @@ IsDeveloperModeEnabled()
 
 wchar_t*
 ResolveUNCPath(
-  wchar_t* aUNCPath,
+  const wchar_t* aUNCPath,
   wchar_t* aResolvedUNCPath
 )
 {
