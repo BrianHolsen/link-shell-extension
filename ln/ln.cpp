@@ -3765,11 +3765,12 @@ wmain(
     // --JunctionRemapALL ToInnerLink---      //--Su Laus extension
     //
     if (JunctionRemapAll) {
-        bool blnRet;
+      bool blnRet;
+      int  iNumRemapped;
         /*-- remaps all found junction below the given folder to its next fitting directory, which is not a reparse point --*/
         if (INVALID_FILE_ATTRIBUTES != Argv1Path.FileAttribute) {
             if (((Argv1Path.FileAttribute & FILE_ATTRIBUTE_REPARSE_POINT) == 0)) {
-                blnRet = ReplaceToInnerJunctionAll(Argv1Path.Argv);
+                blnRet = ReplaceToInnerJunctionAll(Argv1Path.Argv, iNumRemapped);
                 if (blnRet) Exit(ERR_SUCCESS);
                 else Exit(ERR_CREATE_HARDLINK_FAILED);
             } else {

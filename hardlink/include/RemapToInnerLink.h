@@ -11,10 +11,7 @@ bool SetReparseInfo(_ArgvPath& ArgvPath);
 bool SearchInnerLinkPath(_ArgvPath& ArgvPath, wstring &wInnerLinkPath);
 void PrintError(DWORD dwErr, LPCTSTR userText, LPCTSTR userText2);
 bool ReplaceToInnerJunction(_ArgvPath& ArgvPath);
-bool ReplaceToInnerJunctionAll(wstring directoryName);
-
-long ReplaceToInnerJunctionOld(wchar_t* wzInFolder);
-long getDirectoryListing(const wchar_t* wzDirectoryName);
+bool ReplaceToInnerJunctionAll(wstring directoryName, int& iNumRemapped);
 
 extern void PrintError(DWORD dwErr, LPCTSTR userText, LPCTSTR userText2);
 

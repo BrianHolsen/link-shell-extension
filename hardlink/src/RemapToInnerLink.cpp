@@ -114,7 +114,7 @@ bool SetReparseInfo(_ArgvPath& ArgvPath)
     HANDLE hDir = ::CreateFile(ArgvPath.Argv.c_str(), GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING,
         FILE_FLAG_OPEN_REPARSE_POINT | FILE_FLAG_BACKUP_SEMANTICS, NULL);
     if (hDir == INVALID_HANDLE_VALUE) {
-        PrintError(GetLastError(), TEXT("\SetReparseInfo()-CreateFile() Error from "), ArgvPath.Argv.c_str());
+        PrintError(GetLastError(), TEXT("\nSetReparseInfo()-CreateFile() Error from "), ArgvPath.Argv.c_str());
         return false;
     }
 
@@ -495,6 +495,8 @@ bool SearchInnerLinkPath(_ArgvPath& ArgvPath, wstring& wInnerLinkPath)
 ** Purpose     : Remaps a junction to its next fitting directory, which is not a reparse point 
 ** Prerequisite: ArgvPath properties and .ArgvReparseTarget have to be set before calling ReplaceToInnerJunction()
 **
+** Return      : true=success; false=something went wrong;
+**
 *******************************************************************************/
 bool ReplaceToInnerJunction(_ArgvPath& ArgvPath)
 {
@@ -549,7 +551,9 @@ bool ReplaceToInnerJunction(_ArgvPath& ArgvPath)
                     }
                 }
             }
-        } //-- if (SearchInnerLinkPath = true) --
+        } else { //-- if (SearchInnerLinkPath = true) --
+          blnRet = true;
+        }
     }     //-- if (blnIsReparsePointAttr) --
     return blnRet;
 } //-- ReplaceToInnerJunction() --
@@ -561,12 +565,12 @@ bool ReplaceToInnerJunction(_ArgvPath& ArgvPath)
 ** Purpose     : Searches below folder for all junctions and remaps those junction to its next fitting directory, 
 **               which is not a reparse point 
 **
-** Return      : true=success; false=something went wrong;
+** Return      : iNumRemapped = number of remapped junctions;
 **
 *******************************************************************************/
-bool ReplaceToInnerJunctionAll(wstring directoryName)
+bool ReplaceToInnerJunctionAll(wstring directoryName, int& iNumRemapped)
 {
-    bool blnRet    = false;
+    bool blnRet    = true;
     bool blnRetLoc = false;
 
     WIN32_FIND_DATA fdata;
@@ -575,6 +579,7 @@ bool ReplaceToInnerJunctionAll(wstring directoryName)
     wstring         dirNameSearch;
     wchar_t         c;
 
+    iNumRemapped = 0;
 
     //-- Check directory name end --
     if (PathIsUNC(directoryName.c_str()))
@@ -596,7 +601,7 @@ bool ReplaceToInnerJunctionAll(wstring directoryName)
                 blnRetLoc = SetArgvPathProperties(&ArgvPath);
                 if (blnRetLoc) {
                   blnRetLoc = ReplaceToInnerJunction(ArgvPath);
-                  blnRet    = blnRetLoc;
+                  if (blnRetLoc)  iNumRemapped++;
                 } else {
                   blnRet = false;
                   PrintError(0, TEXT("ReplaceToInnerJunctionAll() Could not set properties -> break: "), ArgvPath.Argv.c_str());
@@ -604,11 +609,11 @@ bool ReplaceToInnerJunctionAll(wstring directoryName)
                 }
             } else if ((fdata.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) != 0) {
                 //-- Check directory name end for . and .. and avoid endless loop --
-                if (!wcscmp(fdata.cFileName, L".") && !wcscmp(fdata.cFileName, L"..")) {
+                if (!(wcscmp(fdata.cFileName, L".") == 0 || wcscmp(fdata.cFileName, L"..") == 0)) {
                   //-- If it is a directory, continue searching there --
                   // build full pathname, if directoryName is not current directory
                   ArgvPath.Argv = directoryName + fdata.cFileName;
-                  blnRet        = ReplaceToInnerJunctionAll(ArgvPath.Argv.c_str());
+                  blnRet        = ReplaceToInnerJunctionAll(ArgvPath.Argv.c_str(), iNumRemapped);
                     if (!blnRet) {
                     PrintError(0, TEXT("ReplaceToInnerJunctionAll() Sub-Directory not successfully handled -> break: "), ArgvPath.Argv.c_str());
                       break;
