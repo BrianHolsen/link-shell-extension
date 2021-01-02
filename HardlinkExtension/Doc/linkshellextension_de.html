@@ -161,26 +161,26 @@
             </td>
 
             <td class="bodytext">
-                Das NTFS file system unterstützt eine .facility. bekannt als  <b>hard links</b>
-                (Hier bezeichnet als <b>Hardlinks</b>). Hardlinks ermöglichen es eine Datei in verschiedenen Ordnern anzuzeigen, ohne die Datei zu verfielfältigen. (directories).&nbsp;
+                Das NTFS Filesystem unterstützt eine <b>hard links</b>
+                Hardlinks ermöglichen es eine Datei in verschiedenen Ordnern anzuzeigen, ohne die Datei zu verfielfältigen.&nbsp;
 
                 Diese können mit dem POSIX Befehl <b><i>ln</i></b> des Windows
-                Resource Kits, dem <i>fsutil</i> Befehl von Windows oder mit meinem Befehl
-                <a href="http://schinagl.priv.at/nt/ln/ln.html">ln.exe</a> utility&nbsp; erstellt werden
+                Resource Kits, dem <i>fsutil</i> Befehl von Windows oder mit diesem Tool
+                <a href="http://schinagl.priv.at/nt/ln/ln.html">ln.exe</a>&nbsp; erstellt werden.
 
-                Daher können unter Verwendung von Standard-Windows-Einrichtungen Hardlinks nur mit
-                der Eingabeaufforderung, welche ermüdend sein kann, besonders wenn Hardlinks zu mehreren Dateien nötig sind 
-                oder wenn man nur selten von Hardlinks gebrauch macht..&nbsp;
-                Die Unterstützung für Junctions in Standard-Softwareangeboten von Microsoft ist noch begrenzter als die für Hardlinks.
+                Daher können Hardlinks mit Standard Windows BEfehlen nur im
+                Command Prompt erstellt werden, was aber sehr mühsam sein kann, besonders wenn Hardlinks zu mehreren Dateien nötig sind 
+                oder wenn man nur selten von Hardlinks gebrauch macht.&nbsp;
+                Die Unterstützung für Junctions und symbolischen Links unter Windows ist noch begrenzter als die für Hardlinks.
 
                 <p>
-                    Link Shell Extension (LSE) ermöglicht das erstellen von 
+                    Link Shell Extension (LSE) ermöglicht das Erstellen von 
                     <a href="#hardlinks">Hardlinks</a>, <a href="#junctions">Junctions</a>,
                     <a href="#volumemountpoint">Volume Mountpoints</a>,
                     und <a href="#symboliclinks">Symbolic Links</a>,
-                    (hier zusammenfassend als Links bezeichnet), einen Prozess zum <a href="#hardlinkclones">klonen von Ordnern </a> welcher
+                    (hier zusammenfassend als Links bezeichnet), einen Prozess zum <a href="#hardlinkclones">Klonen von Ordnern </a> welcher
                     Hardlinks oder Symbolic Links verwendet sowie einen Kopierprozess welcher sich um Junctions, Symbolic Links, und Hardlinks kümmert.
-                    LSE, wie der Name schon sagt als Shell-erweiterung implementiert und wird über den Windows explorer oder ähnliche Dateimanager aufgerufen.
+                    Link ShellExtension, ist als Shell-Erweiterung implementiert und wird über den Windows Explorer oder ähnliche Dateimanager aufgerufen.
                     <br />
 
                     Die Erweiterung erlaubt es dem Benutzer, eine oder mehrere Dateien oder Ordner auszuwählen und dann mit der Maus die Erstellung der gewünschten Links - 
@@ -189,7 +189,7 @@
 
                     LSE wird auf allen Windows-Versionen unterstützt, die NTFS Version 5.0 oder höher, Windows7/8/10,
 					unterstützen. Hardlinks, Junctions und Symbolic Links werden auf FAT-Dateisystemen NICHT unterstützt, 
-					ebenso wenig wie der Prozess des Klonens und Smart Copy auf FAT-Dateisystemen.
+					ebenso wenig wie das Erstellen eines Klons und Smart Copy auf FAT-Dateisystemen.
                       
                 </p>
 
@@ -198,12 +198,12 @@
                         action
                         (pop up) menu
                     </i>
-                </b> verwendet um die rechte Maustaste und das Menü, dass erscheint wenn die rechte Maustaste gedrückt wird
-                (oft auch als context menu bezeichnet)zu beschreiben. In anbetracht dessen, dass Benutzer die Funktionen ihrer Maustasten ändern, 
-                bezeichnet Microsoft diese als primary und secondary Maustasten. Wir bevorzugen es die Maustasten
+                </b> verwendet, um die rechte Maustaste und das Menü, dass erscheint wenn die rechte Maustaste gedrückt wird
+                (oft auch als Context Menu bezeichnet), zu beschreiben. In Anbetracht dessen, dass Benutzer die Funktionen ihrer Maustasten ändern, 
+                bezeichnet Microsoft diese als primäre und secondäre Maustasten. Wir bevorzugen es die Maustasten
                 <b>Select </b>button und <b>Action </b>button zu nennen,
-				und anstelle des context menus, des Shell menus und des Right mouse menus verwenden wir den Begriff 
-                 <b>Action </b>menu.
+				und Anstelle des Context Menus, des Shell Menus und des Right Mouse menus wird der Begriff 
+                 <b>Action </b>menu verwendet.
             </td>
         </tr>
 
@@ -217,7 +217,7 @@
             </td>
 
             <td class="bodytext">
-                Der angemeldete Benutzer muss Administratorrechte haben um die software zu Installieren.
+                Der angemeldete Benutzer muss Administratorrechte haben um die software zu installieren.
                 <p>
                     Um LSE zu installieren muss man das Installations programm
                     <a href="#download">(HardLinkShellExt_$(platform).exe)</a> ausführen.
@@ -229,7 +229,7 @@
                     C:\Program Files\LinkShellExtension<br />
                 <p>
                     <b><a name="smartscreen">Smartscreen pop-up</a></b><br />
-                    Bei Windows 10 besteht die Möglichkeit das der Windows defender sie warnt:
+                    Bei Windows 10 besteht die Möglichkeit, dass der Windows defender sie warnt:
 
                     <i>
                         <br /><br />
@@ -244,9 +244,9 @@
                     <br /><br />
 
                     <b>Explorer Restart</b><br />
-                    Während der Installation muss Explorer.exe neugestartet werden,damit die Link Shell Extension activiert wird.
-                    Das bedeutet, dass alle ausstehenden Operationen mit explorer.exe unterbrochen werden,
-					sie können sich jedoch entscheiden, den Neustart von explorer.exe zu verschieben.
+                    Während der Installation muss Explorer.exe neugestartet werden, damit die Link Shell Extension aktiviert wird.
+                    Das bedeutet, dass alle ausstehenden Operationen im Explorer.exe unterbrochen werden,
+					sie können sich jedoch entscheiden, den Neustart von Explorer.exe zu verschieben.
 					Ein Dialogfeld gibt Ihnen diese Möglichkeiten während der Installation.
                 </p>
                 <br />
@@ -259,12 +259,13 @@
             </td>
 
             <td class="bodytext">
-                Einige Befehlszeilenschalter können während der Installation übergeben werden, so dass eine unbeaufsichtigte Installation über eine .bat-Datei ausgeführt werden kann.
+                Eine interaktionslose Installation kann z.b. über eine .bat-Datei ausgeführt werden kann. Dazu können während der Installation Kommandozeilen Argumente übergeben werden.
+				
 			.<br /><br />
 
                 <b>Silent install</b><br />
                 /S zeigt während der Installation keine Eingabeaufforderungen an. Wenn die Befehlszeilenoption /S verwendet wird,
-				wird der explorer.exe nach der Installation neu gestartet, um die Link Shell Extension sofort zu aktivieren
+				wird der Explorer.exe nach der Installation neu gestartet, um die Link Shell Extension sofort zu aktivieren
                 <br /><br />
 
                 <b>Specify Language</b><br />
@@ -274,12 +275,12 @@
                     <b>HardLinkShellExt_$(platform).exe /S /Language=English</b>
                 </span>
                 Momentan sind <i>Englisch, Chinesisch, Tschechisch, Französisch, Deutsch, Griechis, Italienisch, Japanisch, Koreanisch, Polisch, Portugisisch, Russisch, Slovakisch, Spanisch, Swedisch, Türkisch and Ukrainisch</i>
-                verfügbare Sprachen für /Language
+                verfügbare Sprachen als Argument für /Language
                 <br />
                 <br />
 
                 <b>Specify Directory</b><br />
-                Wenn die unbeaufsichtigte Installation verwendet wird kann ein Dateipfad mit mit /D spezifiziert werden z.B.
+                Wenn die unbeaufsichtigte Installation verwendet wird, kann ein Dateipfad mit mit /D spezifiziert werden z.B.
                 <br />
                 <br />
 
@@ -290,21 +291,21 @@
                 <br />
 
                 <b>Uninstall</b><br />
-                LSE kann auch unbeaufsichtigt deinstalliert werden indem man den Befehl
+                LSE kann auch interaktionslos deinstalliert werden, indem man den Befehl
 
                 <span class="ascode">
                     <b>$LSEInstallDir/uninst-HardLinkShellExt_$(platform).exe /S </b>
                 </span>
 				ausführt
 				
-                Wenn der /S schalter während der deinstallation benutzt wird, startet sich explorer.exe neu, um Link Shell Extension
+                Wenn der /S schalter während der Deinstallation benutzt wird, startet sich Explorer.exe neu, um Link Shell Extension
 				zu deaktivieren.
                 <br />
                 <br />
 
                 <a name="novcredist"><b>No Check for VcRedist</b><br /></a>
-                Bei manchen Windows10 Installationen ist ers nicht nötig vcredist zu installieren, oder schlimmer, vcredist kann nicht installiert werden, ist jeodch irgendwie schon auf dem System.
-                 Um dies zu ümgehen, kann der /noredist-Schalter per Kommandozeile übergeben werden. z.B.:<br /><br />
+                Bei manchen Windows10 Installationen ist es nicht nötig vcredist zu installieren, oder vcredist kann nicht installiert werden, ist jeodch schon auf dem System.
+                Um dies zu umgehen, kann der /noredist-Schalter per Kommandozeile übergeben werden. z.B.:<br /><br />
 
 
                 <span class="ascode">
@@ -330,7 +331,7 @@
                 <br />
                 <br />
                 in einem Command prompt ausführt. Stellen sie sicher, dass <a href="https://chocolatey.org/install">chocolatey</a> installiert ist.
-                Der angemeldete Benutzer benötigt Administratorrechte um die software via choco zu installieren.
+                Der angemeldete Benutzer benötigt Administrator Rechte, um die Software via choco zu installieren.
                 <br />
                 <br />
             </td>
@@ -346,14 +347,14 @@
 
             <td class="bodytext">
                 <b>Pick Link Source</b> bewirkt, dass die ausgewählten Dateien 
-                als "Quelle" für die Hardlinks die Sie erstellt haben gespeichert werden.
+                als "Quelle" für die Hardlinks, die Sie erstellt haben, gespeichert werden.
                 <br />
                 <br />
                 <img src="picklinksource.png" alt="Pick Link Source">
                 <br />
                 <br />
 
-                Um einen Hardlink zu erstellen, muss ein Ziel Ordner ausgewählt werden. 
+                Um einen Hardlink zu erstellen, muss ein Ziel-Ordner ausgewählt werden. 
                 Wenn Sie mit der Maus auf den Zielordner klicken, öffnet sich ein Menü, das den Eintrag -
                 <b> Drop HardLink</b>
                 <br />
@@ -362,17 +363,17 @@
 
                 <br />
                 <br />
-                <b>Drop HardLink</b> erstellt  einen Hardlink im gewünschten Ordner.
+                <b>Drop HardLink</b> erstellt einen Hardlink im gewünschten Ordner.
                 <br />
                 <br />
 
                 <b>Overlay Icons for Hardlinks</b><br />
-                Um Hardlinks von anderen Dateien unterscheiden zu können wird ein <b>overlay icon</b> angezeigt,
+                Um Hardlinks von anderen Dateien unterscheiden zu können, wird ein <b>Overlay Icon</b> angezeigt,
                 <br /><br />
                 <img src="hardlinkicon_10.png" alt="Overlay Icon for Symbolic Links">
 
                 <br /><br />
-                Overlay icons für Hardlinks können auch  <a href="#customoverlayicons">angepasst</a> werden.v
+                Overlay Icons für Hardlinks können auch  <a href="#customoverlayicons">angepasst</a> werden.
                 <br />
                 <br />
             </td>
@@ -380,16 +381,16 @@
 
         <tr>
             <td class="hanger">
-                <a name="cancelcurrentpicklinkoperation"><b>Cancel current Pick Link operation</b></a>
+                <a name="cancelcurrentpicklinkoperation"><b>Link Erstellung abbrechen</b></a>
             </td>
 
             <td class="bodytext">
-                Wenn Sie mit dem Action Button  im Hintergrund des Zielordners klicken, gibt es zusätzlich
-                 zur Option Drop HardLink die Möglichkeit, die <b>Linkerstellung abzubrechen</b>.
+                Wenn Sie mit dem Action Button in den Hintergrund des Zielordners klicken, gibt es zusätzlich
+                zur Option Drop HardLink die Möglichkeit, die <b>Linkerstellung abzubrechen</b>.
                 <br />
                 <br />
 
-                <img src="cancelpickbackground.png" alt="Cancel the current pick operation">
+                <img src="cancelpickbackground.png" alt="Link Erstellung abbrechen">
                 <br />
                 <br />
             </td>
@@ -403,10 +404,10 @@
             <td class="bodytext">
                 Da die LSE <a href="#junctions">Junctions</a>,
                 <a href="#hardlinkclones">Clones</a> und <a href="#symboliclinks">Symbolic Links</a>,
-                unterstützt, können bei der Auswahl eines oder mehrerer Ordner als Source Links diese in verschiedenen Formen abgelegt werden.
+                unterstützt, können diese bei der Auswahl eines oder mehrerer Ordner als Source Links in verschiedenen Arten erstellt werden.
                 <br />
                 <br />
-                Um eine Überfüllung des Popup-Menüs zu vermeiden, wird ein Untermenü angeboten, das die verschiedenen Arten von Links enthält, die auf Ordner anwendbar sind.
+                Um eine Überfüllung des Popup-Menüs zu vermeiden, wird ein Untermenü angeboten, das die verschiedenen Arten von Linkerstellungen enthält, die auf Ordner anwendbar sind.
 
                 <br />
                 <br />
@@ -426,9 +427,8 @@
 
             <td class="bodytext">
                 Das Erstellen von Hardlinks per Drag and Drop wird unterstützt. Nachdem Sie eine oder mehrere Dateien ausgewählt haben, können Sie diese mit dem 
-                Action Button in den Zielordner ziehen. Wenn diese losgelassen wird, wählen Sie im Aktionsmenü den Eintrag HardLink Here, um die Hardlinks der </b>
-                ausgewählten Dateien im Zielordner zu erstellen.
-
+                Action Button in den Zielordner ziehen. Wenn der Action Button losgelassen wird, wählen Sie im Aktionsmenü den Eintrag <b>Hardlink hier erstellen</b>,
+                um die Hardlinks der ausgewählten Dateien im Zielordner zu erstellen.
                 <br />
                 <br />
 
@@ -448,8 +448,8 @@
             </td>
 
             <td class="bodytext">
-                Dateien können&nbsp;
-                mit demselben Ordner wie der Quellordner verknüpft sein. 
+                Dateien können
+                im selben Ordner wie der Quellordner verknüpft sein. 
                 Da zwei Verzeichniseinträge nicht den gleichen Namen haben können, verwendet die LSE '$Dateiname - Hardlink.$ext' als den Namen des neuen Links.
                 <br />
                 <br />
@@ -458,8 +458,8 @@
                 <br />
                 <br />
 
-                LSE verwendet die gleiche Hydraulik wie explorer, 
-                wenn es um mehrere '$filename - Hardlink' geht: Sie verwendet Zahlen, um mehrere Hardlinks einer Datei 
+                LSE verwendet das gleiche Verfahren wie Explorer, 
+                wenn es um mehrere '$filename - Hardlink' geht: Es verwendet Zahlen, um mehrere Hardlinks einer Datei 
                 im gleichen Verzeichnis aufzuzählen, z.B. <i>$filename - Hardlink (2).$ext.</i>
                 <br /><br />
                 Der Mechanismus der automatischen Umbenennung wird auch verwendet, wenn Junctions, Hardlink-
@@ -476,12 +476,12 @@
 
         <tr>
             <td class="hanger">
-                <a name="junctionsupport"><b>Junction Support</b></a>
+                <a name="junctionsupport"><b>Junction Unterstützung</b></a>
             </td>
 
             <td class="bodytext">
                 <a href="http://technet.microsoft.com/en-us/sysinternals/bb896768">Junctions</a>
-                ermöglichen das erstellen von Verknüpfungen zwischen Verzeichnissen.
+                ermöglichen das Erstellen von Verknüpfungen zwischen Verzeichnissen.
                 <br />
                 <br />
 
@@ -490,9 +490,9 @@
                 <br />
 
                 Junctions werden auf die gleiche Weise wie Hardlinks erstellt, 
-                , mit der Ausnahme, dass der Source Link ein Ordner und nicht eine Datei ist.
-                  Wählen Sie einen Ordner, klicken Sie mit der rechten Maustaste, wählen Sie <b>Pick Link Source</b> aus dem Aktionsmenü, 
-                navigieren Sie zum Zielordner, klicken Sie auf die Aktionstaste, öffnen Sie das Untermenü <b>Drop As ...</b> und wählen Sie <b></b>Junction</b>:
+                mit der Ausnahme, dass die Quelle ein Ordner und nicht eine Datei ist.
+                Wählen Sie einen Ordner, klicken Sie mit der rechten Maustaste, wählen Sie <b>Pick Link Source</b> aus dem Aktionsmenü, 
+                navigieren Sie zum Zielordner, klicken Sie auf die Aktionstaste, öffnen Sie das Untermenü <b>Einfügen als ...</b> und wählen Sie <b></b>Junction</b>:
                 <br />
                 <br />
 
@@ -509,7 +509,7 @@
 
 
                 Junctions können auch per Drag and Drop erstellt werden, indem die ausgewählten Ordner mit dem Actionbutton in einen Zielordner gezogen werden; 
-                wenn die rechte Maustaste losgelassen wird, wählen Sie das Untermenü <b>Drop Here ...</b> und dann <b>Junction.</b>.
+                wenn die rechte Maustaste losgelassen wird, wählen Sie das Untermenü <b>Hier einfügen als ...</b> und dann <b>Junction.</b>.
                 <br />
                 <br />
 
@@ -518,38 +518,37 @@
                 <br />
 
 
-                <b>Overlay Icons for Junctions</b><br />
-                Um die Unterscheidung von Junction Ordnern von normalen Ordnern zu erleichtern,
-                ist an Junctions ein <b>Symbol</b> implementiert, das ein kleines dreigliedriges Kettensymbol unter dem Ordner anzeigt.
+                <b>Overlay Icons für Junctions</b><br />
+                Um die Unterscheidung von Junction von normalen Ordnern zu erleichtern,
+                haben Junctions ein <b>kleines dreigliedriges Kettensymbol unter dem Icon</b> implementiert.
                 <br />
                 <br />
 
                 <img src="junctionicon_10.png" alt="Overlay Icon for Junctions"><br /><br />
-                Die Symbole für Knotenpunkte können ebenfalls <a href="#customoverlayicons">angepasst</a> werden.
+                Die Symbole für Junctions können ebenfalls <a href="#customoverlayicons">angepasst</a> werden.
                 <br />
                 <br />
 
                 Junctions können sich über <b>Netzlaufwerke</b> erstrecken, solange das Ziel ein zugeordnetes Netzlaufwerk ist.
                 Leider können Junctions, die einen UNC-Pfad als Ziel haben, mit LSE erstellt werden, aber selbst Windows7/8/10 scheint einen Fehler zu enthalten,
                 der die Dereferenzierung eines UNC-Pfads in einer Junction verhindert, selbst wenn LSE die Reparse-Informationen für UNC-Knoten korrekt einrichtet.
-                Wenn eine UNC-Zielkreuzung im Explorer doppelt angeklickt wird, erscheint der Fehler ERROR_INVALID_REPARSE_DATA(4392), 
-                the reparse info for UNC junctions. When a UNC target junction is
+                Wenn eine UNC-Junction im Explorer doppelt angeklickt wird, erscheint der Fehler ERROR_INVALID_REPARSE_DATA(4392), 
                 der Sie darauf hinweist, dass die Information im Reparse-Punkt illegal ist, auch wenn sie es nicht ist.
                 <br />
                 <br />
 
-                <b>@Microsoft</b>: Warum haben Sie diese Funktion nicht für Knotenpunkte aktiviert, auch wenn die Syntax für UNC-Knotenpunkte 
+                <b>@Microsoft</b>: Warum haben Sie diese Funktion nicht für Junctions aktiviert, auch wenn die Syntax für UNC-Knotenpunkte 
 				definiert ist? \???\UNC\ server/share. Jede Hilfe ist willkommen.
                 <br />
                 <br />
 
-                Elevation wird z.B. in c:\Programmdateien für Junctions benötigt, die in c:\Programmdateien erstellt werden.
-                Aus diesem Grund muss der  <a href="#VistaAndUAC">berühmte UAC</a> Dialog anerkannt werden.
+                Elevation wird z.B. in c:\Programme für Junctions benötigt, die in c:\Programm erstellt werden.
+                Aus diesem Grund muss der  <a href="#VistaAndUAC">berühmte UAC</a> Dialog geöffnet werden.
                 <br />
 
-                Um genau zu sein nur die Erstellung von Verzeichnissen benötigt in solchen Situationen Elevation,
-				aber die Erstellung eines leeren Verzeichnisses ist ein wichtiger Teil der Erstellung einer Kreuzung.
-				Das DeviceIoControl(), das die eigentliche Arbeit bei der Erstellung von Abzweigungen leistet, würde ohne Elevation funktionieren.
+                Nur die Erstellung von Verzeichnissen benötigt in solchen Situationen Elevation,
+				aber die Erstellung eines leeren Verzeichnisses ist ein wichtiger Teil der Erstellung einer Junction.
+				Die Funktion DeviceIoControl(), das die eigentliche Arbeit bei der Erstellung von Junctions leistet, würde ohne Elevation funktionieren.
                 <br />
                 <br />
             </td>
@@ -566,10 +565,11 @@
                 <br />
                 <br />
 
-                Um diese Funktion zu nutzen, wählen Sie ein exsistierendes Verzeichnis als Link Source, und ziehen
+                Um diese Funktion zu nutzen, wählen Sie ein existierendes Verzeichnis als Link Quelle und ziehen
 				Sie es über eine Junction/Symbolic Link/Mountpoint.
-                Indem sie die 'Drop as ... Replacement Junction/Symbolic Link/MountPoint' 
-				Funktion auswählen, wird das Ziel einer existierenden Funktion durch das neu ausgewählte ersetzt.
+                Indem sie die 'Einfügen als ... Replacement Junction/Symbolic Link/MountPoint' 
+				Funktion auswählen, wird das Ziel einer existierenden Junction/Symbolic Link/MountPoint 
+				durch das neu Ausgewählte ersetzt.
                 <br />
                 <br />
 
@@ -577,12 +577,12 @@
                 <br />
                 <br />
 
-                Das selbe kann mithilfe von Drag and Drop für Symbolic Link Directories, Junctions und Mount Points, jedoch nicht für Symbolic Link files erreicht werden.
-                Symbolic Link files müssen mithilfe der 'Pick Link Source','Drop as ... Replacement Symbolic Link' ersetzt werden.
+                Das selbe kann mit Hilfe von Drag and Drop für Symbolic Link Directories, Junctions und Mount Points, jedoch nicht für Symbolic Link files gemacht werden.
+                Symbolic Link files müssen mithilfe der 'Pick Link Source','Einfügen als ... Replacement Symbolic Link' ersetzt werden.
                 <br />
                 <br />
 
-                Falls der <a href="#backupmode">backup M odus</a> ausgewählt ist, werden die  ACLs der Junctions/Symbolic Links/MountPoints erhalten.
+                Falls der <a href="#backupmode">backup M odus</a> ausgewählt ist, werden die ACLs der Junctions/Symbolic Links/MountPoints erhalten.
                 <br />
                 <br />
             </td>
@@ -603,9 +603,10 @@
                 <br />
 
                 <p>
-                    Um diese Funktion zu nutzen, wählen Sie einfach eine bestehende Junction, einen symbolischen Link oder MountPoint als Linkquelle aus und legen Sie diese über ein bereits bestehendes Verzeichnis. 
-                    Durch Auswahl der Funktion 'Ablegen als ... Junction/Symbolic Link/MountPoint Copy' aus dem 
-                    Aktionsmenü wird der Junction/Symbolic Link/MountPoint auf das Ziel kopiert und die Beziehung angepasst
+                    Um diese Funktion zu nutzen, wählen Sie einfach eine bestehende Junction, einen symbolischen Link oder MountPoint 
+					als Linkquelle aus und legen Sie diese über ein bereits bestehendes Verzeichnis. 
+                    Durch Auswahl der Funktion 'Einfügen als ... Junction/Symbolic Link/MountPoint Copy' aus dem 
+                    Aktionsmenü wird die Junction/Symbolic Link/MountPoint auf das Ziel kopiert und die Beziehung angepasst
                 </p>
 
                 <img src="symlinkcopydrop.png" alt="Drop a junction for replacement">
@@ -613,7 +614,7 @@
                 <br />
 
                 <p>
-                    Dasselbe kann durch Drag and Drop für Verzeichnisse, Knotenpunkte und Mount Points für symbolische Verbindungen erreicht werden.
+                    Dasselbe kann durch Drag and Drop für Verzeichnisse, Junctions und Mount Points für symbolische Verbindungen erreicht werden.
                 </p>
 
                 <p>
@@ -628,9 +629,9 @@
             </td>
 
             <td class="bodytext">
-                Smart Copy erstellt eine Kopie der Verzeichnisstruktur vom Quellort bis zum Zielort, 
-                behält jedoch die innere Hardlink-Struktur und die inneren Verknüpfungs-/Symbollink-Beziehungen des Quellorts bei
-                und stellt diese innere Hardlink-Struktur und innere Verknüpfungs-/Symbollink-Beziehung am Zielort wieder her:
+                Smart Copy erstellt eine Kopie der Verzeichnisstruktur der Quelle im Ziel, 
+                behält jedoch die innere Hardlink-Struktur und die inneren Verknüpfungs-/Symbollink-Beziehungen der Quelle bei
+                und stellt diese innere Hardlink-Struktur und innere Verknüpfungs-/Symbollink-Beziehung am Ziel wieder her:
                 <br />
                 <br />
 
@@ -644,7 +645,7 @@
 
                 <p>
                     <a name="saturatedhardlinks" />
-					Wenn man sich das obige Bild genau ansieht, kann man drei verschiedene Arten von Dateien finden:
+					Wenn man sich das obige Bild genau ansieht, kann man drei verschiedene Arten von Dateien erkennen:
                     
                 </p>
 
@@ -654,59 +655,60 @@
                             <b>Normale Dateien</b>
                         </td>
                         <td>
-                            Die Datei B ist eine normale Datei. Sie wird wie jedes andere Kopierwerkzeug kopiert.
+                            Die Datei B ist eine normale Datei. Sie wird wie jedem anderen Tool kopiert.
                             <br />
                             <br />
                         </td>
                     </tr>
                     <tr>
                         <td class="hanger2">
-                            <b>Saturated Hardlinks</b>
+                            <b>Gesättigte Hardlinks</b>
                         </td>
                         <td>
-                            Die Dateien E und F sind fest miteinander verbunden.
+                            Die Dateien E und F sind Hardlinks.
                             In der LSE werden sie als gesättigte Hardlinks bezeichnet, weil die Referenzzahl,
-                            die hier 2 ist, mit der Anzahl der Vorkommen unter 'Ordner 1', die hier 2 ist, übereinstimmt.
+                            die hier 2 ist, mit der Anzahl der Vorkommnisse unter 'Ordner 1', die hier 2 ist, übereinstimmt.
                             <br />
                             <br />
 
                             <p>
-                                Allgemeines: Ein Hardlink wird in Bezug auf einen Ordner <i>F</i> als gesättigt bezeichnet, ,
-                                i wenn die Anzahl der Vorkommnisse unterhalb des Ordners <i>F</i> mit der Referenzzahl übereinstimmt.
+                                Allgemein: Ein Hardlink wird in Bezug auf einen Ordner <i>F</i> als <i>gesättigt</i> bezeichnet,
+                                wenn die Anzahl der Vorkommnisse unterhalb des Ordners <i>F</i> mit der Referenzzahl übereinstimmt.
                             </p>
 
                             <p>
-                                Saturated Hardlinks können vollständig über Smart Copy kopiert werden.                            </p>
+                                Gesättigte Hardlinks können vollständig über Smart Copy kopiert werden.
+							</p>
                             <br />
                         </td>
                     </tr>
                     <tr>
                         <td class="hanger2">
-                            <b>Unsaturated Hardlinks</b>
+                            <b>Ungesättigte Hardlinks</b>
                         </td>
                         <td>
-                            Die Akten A, C, D sind fest miteinander verbunden. In der LSE werden sie als ungesättigte Hardlinks bezeichnet,
-                            weil die Referenzzahl, die hier 3 ist, nicht mit der Anzahl der Vorkommen unter 'Ordner 1', die hier 2 ist, übereinstimmt. Nur C und D liegen unter Ordner 1.
-
+                            Die Dateien A, C, D sind Hardlinks. In der LSE werden sie als ungesättigte Hardlinks bezeichnet,
+                            weil die Referenzzahl, die hier 3 ist, nicht mit der Anzahl der Vorkommnisse unter 'Ordner 1', die hier 2 ist, übereinstimmt. 
+							Nur C und D liegen unter Ordner 1.
                             <br />
                             <br />
 
                             <p>
-                                Allgemeines: Ein Hardlink wird in Bezug auf einen Ordner <i>F</i> als ungesättigt bezeichnet,
-                                Ordner F als ungesättigt bezeichnet, wenn die Anzahl der Vorkommnisse unterhalb des Ordners F kleiner als die Referenzzahl ist.
+                                Allgemein: Ein Hardlink wird in Bezug auf einen Ordner <i>F</i> als ungesättigt bezeichnet,
+                                wenn die Anzahl der Vorkommnisse unterhalb des Ordners <i>F</i> kleiner als die Referenzzahl ist.
                             </p>
 
                             <p>
                                 Ungesättigte Hardlinks können mit Smart Copy nur teilweise kopiert werden.
-                                Im obigen Beispiel sind C und D am Zielort hardlinked miteinander verbunden, aber die Hardlink zu A ist unterbrochen. 
-                                Das bedeutet, dass die Referenzzahl von C und D zusammen mit dem Zielort 2 beträgt.
+                                Im obigen Beispiel sind C und D am Zielort Hardlinks, aber die Hardlink Verbindung zu A ist unterbrochen. 
+                                Das bedeutet, dass die Referenzzahl von C und D am Zielort 2 beträgt.
                             </p>
                         </td>
                     </tr>
                 </table>
                 <br />
                 <br />
-                <a name="innerjunction" />Bei Junctions oder symbolic Linkverzeichnisen ist das  <a href="#outerjunctionhandling"> Standardverhalten</a> beim Smartcopy wie folgt:
+                <a name="innerjunction" />Bei Junctions oder symbolic Linkverzeichnisen ist das  <a href="#outerjunctionhandling"> Standardverhalten</a> bei Smartcopy wie folgt:
                 <br />
                 <br />
 
@@ -723,8 +725,7 @@
                             <b>Normale Ordner</b>
                         </td>
                         <td>
-                            Der Ordner 'Ordner 3' ist ein normaler Ordner. Er wird mit seinem Inhalt kopiert, wie es jedes andere Kopierwerkzeug tun würde.
-	<br />
+                            Der Ordner 'Ordner 3' ist ein normaler Ordner. Er wird mit seinem Inhalt kopiert, wie es jedes andere Tool tun würde.<br />
                             <br />
                             <br />
                         </td>
@@ -734,8 +735,8 @@
                             <b>Inner Junctions<br />Symlinks</b>
                         </td>
                         <td>
-                            Der Ordner 'Inner Junction/Symlink' ist auf 'Inner Junction/Symlink Target' ausgerichtet.
-                            In LSE Begriffen wird diese Art von Ordner als <i>'Inner Junction/Symlink'</i> bezeichnet,  
+                            'Inner Junction/Symlink' hat als Ziel 'Inner Junction/Symlink Target'.
+                            Diese Art von Ordner wird als <i>'Inner Junction/Symlink'</i> bezeichnet,  
                             weil sein Ziel auf einen Ordner zeigt, der unterhalb des gemeinsamen 'Ankers' 'Folder 1' liegt.
                             <br />
                             <br />
@@ -751,9 +752,8 @@
                             <b>Outer Junctions<br />Symlinks</b>
                         </td>
                         <td>
-                            Der Ordner 'Outer Junction/Symlink' ist auf den Ordner 
-                            'Outer Junction/Symlink Target' ausgerichtet. In LSE Begriffen wird diese Art von Ordner
-                            <i>Outer Junction/Symlink'</i> genannt, weil sein Ziel auf einen Ordner zeigt,
+                            'Outer Junction/Symlink' hat 'Outer Junction/Symlink Target' als Ziel. 
+							Diese Art von Ordner wird <i>Outer Junction/Symlink'</i> genannt, weil sein Ziel auf einen Ordner zeigt,
                             der parallel und damit ausserhalb des Ankers 'Folder 1' liegt.
                             <br />
                             <br />
@@ -773,25 +773,25 @@
                 <br />
                 <br />
 
-                Wenn man sich das obige Bild genau ansieht, kann man drei verschiedene Arten von Dateien/symbolischen Links finden                links:
+                Wenn man sich das obige Bild genau ansieht, kann man drei verschiedene Arten von Dateien/symbolischen Links finden:
                 <table cellspacing="0" cellpadding="0" border="0" class="bodytext">
                     <tr>
                         <td class="hanger2">
                             <b>Normale Dateien</b>
                         </td>
                         <td>
-                           Die Datei A ist eine normale Datei. Sie wird wie jedes andere Kopierwerkzeug kopiert.
+                           Die Datei A ist eine normale Datei. Sie wird wie von jedem anderen Tool kopiert.
                             <br />
                             <br />
                         </td>
                     </tr>
                     <tr>
                         <td class="hanger2">
-                            <b>Inner Symbolic<br />Links</b>
+                            <b>Innere Symbolische<br />Links</b>
                         </td>
                         <td>
-                            Der symbolische Link 'Inner Symlink' ist auf 'Inner Symlink Target' ausgerichtet.
-                            In den Begriffen der LSE wird diese Art von symbolischem Link <i>Inner Symlink</i> genannt,
+                            Der symbolische Link 'Inner Symlink' hat 'Inner Symlink Target' als Ziel.
+                            Diese Art von symbolischem Link wird <i>Inner Symlink</i> genannt,
 							weil sein Ziel auf eine Datei zeigt, die sich unterhalb des gemeinsamen Ankers 'Ordner 1' befindet.
                             <i>Innere Symlinks</i> werden mittels Smart Copy am Zielort korrekt wiederhergestellt.
                             <br />
@@ -802,7 +802,7 @@
                     </tr>
                     <tr>
                         <td class="hanger2">
-                            <b>Outer Symbolic<br />Links</b>
+                            <b>Äussere Symbolische<br />Links</b>
                         </td>
                         <td>
                             Der Symlink 'Outer Symlink' ist auf den Ordner 'Outer Symlink Target' gerichtet.
@@ -819,14 +819,14 @@
                 </table>
 
                 <p>
-                    Smart Copies werden auf die gleiche Weise wie Junctions erstellt, wählen Sie einen Ordner, 
+                    Smarte Kopien werden auf die gleiche Art wie Junctions erstellt, wählen Sie einen Ordner, 
                     benutzen Sie den Actionbutton und wählen Sie Pick Link Source aus dem Aktionsmenü...
                 </p>
                 <img src="deloreanpick.png" alt="Pick Source for Smart Copy">
                 <br />
                 <br />
                 <p>
-                    ...Navigieren Sie zum Zielordner, drücken Sie die Aktionstaste, öffnen Sie das Untermenü <b>Drop As ...</b> und wählen Sie <b>Smart Copy</b>:
+                    ...Navigieren Sie zum Zielordner, drücken Sie die Aktionstaste, öffnen Sie das Untermenü <b>Einfügen als ...</b> und wählen Sie <b>Smart Copy</b>:
                 </p>
 
                 <img src="smartcopydrop.png" alt="Drop Smart Copy">
@@ -842,42 +842,43 @@
                 </p>
 
                 <p>
-                    Da Smart Copy innere Hardlinks/Verknüpfungen/symbolische Links erstellt,
+                    Da Smarte Kopie innere Hardlinks/Verknüpfungen/symbolische Links erstellt,
 					ist diese Funktion nur auf NTFS-Volumes verfügbar.
                 </p>
 
                 <p>
-                    Wenn Smart Copy länger als 250msec dauert,
-					zeigt ein Fortschrittsbalken den Status des Smart Copy-Vorgangs an                </p>
+                    Wenn eine Smarte Kopie länger als 250msec dauert,
+					zeigt ein Fortschrittsbalken den Status des Smart Copy-Vorgangs an
+				</p>
 
                 <p>
-                    Smart Copy verarbeitet alle verfügbaren alternativen NTFS-Streams einer Datei.
+                    Smarte Kopie verarbeitet alle verfügbaren alternativen NTFS-Streams einer Datei.
                 </p>
 
                 <p>
-                    Wenn am Zielort bereits Artikel vorhanden sind, kopiert Smart Copy nur dann, 
-					wenn die Dateien/Symbolische/Knoten/MountPoints neuer sind als die bereits vorhandenen Artikel.
+                    Wenn am Zielort bereits Objekte vorhanden sind, kopiert Smart Copy nur dann, 
+					wenn die Dateien/Symbolischen Links/MountPoints neuer sind als die bereits vorhandenen Artikel.
                 </p>
 
                 <p>
-					Bei der Wiederherstellung symbolischer Links verzweigt LSE ihren Helfer LSEUacHelper.exe, 
-					um diese Operation an sie weiterzuleiten, da die Erstellung symbolischer Links eine Erhöhung benötigt 
-					und somit den berühmten<a href="#VistaAndUAC">UAC-Dialog </a> aufruft.
+					Bei der Wiederherstellung symbolischer Links verwendet die LSE das Tool LSEUacHelper.exe, 
+					um diese Operation auszuführen, da die Erstellung symbolischer Links eine Erhöhung der User Privilegien benötigt 
+					und somit den berühmten<a href="#VistaAndUAC">UAC-Dialog </a> anzeigt.
                 </p>
 
                 <p>
-					Die LSE gibt ihren Helfer LSEUacHelper.exe nur dann aus, 
+					Die LSE benutzt LSEUacHelper.exe nur dann, 
 					wenn sich ein Symlink in/unter den ausgewählten Ordnern befindet. 
-					Sie spart Ihnen also eine UAC-Eingabeaufforderung, wenn Sie keine Symlinks in Ihrer Auswahl haben.
+					Wenn keine Symlinks in Ihrer Auswahl enthalten sind, entfällt UAC-Eingabeaufforderung.
                 </p>
 
                 <p>
-                    Smart Copy erstellt während der Smart Copy Operation standardmäßig <a href="#relative symbolische Links."></a>
+                    Smarte Kopie erstellt während der Operation standardmäßig <a href="#relativevsabsolutesymboliclinks"></a>relative symbolische Links.
                 </p>
 
                 <p>
-                    <b>Command Line<br /><br /></b>Die Smart Copy-Funktion ist auch über die Befehlszeile von 
-                    <a href="http://schinagl.priv.at/nt/ln/ln.html">n.exe</a> über den Befehlszeilenschalter verfügbar.
+                    <b>Command Line<br /><br /></b>Die Smarte Kopie-Funktion ist auch über die Befehlszeile von 
+                    <a href="http://schinagl.priv.at/nt/ln/ln.html">ln.exe</a> über Kommandozeile Optionen verfügbar.
 
                 <br />
                 <br />
@@ -894,9 +895,9 @@
                 </a>
             </td>
             <td>
-                Während <a href="#smartcopy">SmartCopy</a>, <a href="#smartmirror">Smart Mirror</a>, <a href="#deloreancopy">Delorean Copy</a> und <a href="#hardlinkclones">Clone</a>
-                müssen eventuell so genannte <a href="#innerjunction">Outer Junctions/Symlink-Verzeichnissen</a>
-                bearbeitet werden. Es gibt 3 verschiedene Möglichkeiten, mit diesen Outer Junctions/Symlink-Verzeichnissen umzugehen:
+                Während <a href="#smartcopy">Smarte Kopie</a>, <a href="#smartmirror">Smart Mirror</a>, <a href="#deloreancopy">Delorean Copy</a> und <a href="#hardlinkclones">Clone</a>
+                müssen eventuell so genannte <a href="#innerjunction">Äusseren Junctions/Symlink-Verzeichnissen</a>
+                bearbeitet werden. Es gibt 3 verschiedene Möglichkeiten mit diesen Äusseren Junctions/Symlink-Verzeichnissen umzugehen:
                 <br />
                 <br />
                 <table cellspacing="0" cellpadding="0" border="0" class="bodytext">
@@ -905,30 +906,30 @@
                             <b>Crop</b>
                         </td>
                         <td>
-                            <i>Crop</i> bricht Links zu Outer Junctions/Symlink-Verzeichnissen im Zielgebiet ab.
+                            <i>Crop</i> bricht Links zu Äusseren Junctions/Symlink-Verzeichnissen im Ziel.
                             <br />
                             <br />
 
-                            <i>Crop</i> funktioniert auch für Outer Symlink-Dateien.
+                            <i>Crop</i> funktioniert auch für Äussere Symlink-Dateien.
                             <br />
                             <br />
                             <img src="outerjunctionscrop.png" alt="Cropping outer Junctions">
                             <br />
                             <br />
                             <p>
-                                Im obigen Beispiel wird <i>Ordner1</i>  in <i>Zielordner1</i>  kopiert, aber<i>Outer 
-								Junction/Symlink</i>  ist im Ziel nicht verfügbar, weil <i>Ordner1/Outer Junction/Symlink</i>  auf 
-								<i>Ordner0/Outer Junction/Symlink Target</i>  zeigte, der nicht unterhalb von <i>Ordner1</i> liegt.
+                                Im obigen Beispiel wird <i>Folder1</i> nach <i>Destination/Folder1</i> kopiert, aber<i>Outer 
+								Junction/Symlink</i> ist im Ziel nicht verfügbar, weil <i>Folder1/Outer Junction/Symlink</i> auf 
+								<i>Ordner0/Outer Junction/Symlink Target</i> zeigt, der aber nicht unterhalb von <i>Folder1</i> liegt.
                             </p>
                             <p>
                                 Das Ziel hinter dem Beschneiden von Outer Junctions/Symlink Directories ist es, 
-								bei Smart Copy, Smart Mirror, Delorean Copy und Clone eine reine Kopie ohne Verbindungen 
+								bei Smart Copy, Smart Mirror, Delorean Copy und Clone eine Kopie ohne Verbindungen 
 								zur Quelle zu erhalten.
                             </p>
 
                             <p>
                                 <b>Crop für äußere Verbindungen/Symbolische Links aktivieren</b><br />
-                                <i>Crop</i> kann über das  <a href="#configuration">Konfigurationswerkzeug</a> ausgewählt werden.
+                                <i>Crop</i> kann über das <a href="#configuration">Konfigurationswerkzeug</a> ausgewählt werden.
                             </p>
                         </td>
                     </tr>
@@ -937,14 +938,14 @@
                             <b>Unroll</b>
                         </td>
                         <td>
-                            <i>Unroll</i>  folgt Outer Junctions/Symlink Directories und baut den Inhalt 
-							von Outer Junctions/Symlink Directories innerhalb der Hierarchie am Zielort neu auf.
+                            <i>Unroll</i> folgt Äusseren Junctions/Symlink Directories und baut den Inhalt 
+							von Äusseren Junctions/Symlink Directories innerhalb der Hierarchie am Ziel neu auf.
                             <br />
                             <br />
 
                             <p>
                                 <i>Unroll</i> gilt auch für Outer Symlink Files, d.h. Unroll bewirkt, 
-								dass das Ziel von Outer Symlink Files an den Zielort kopiert wird.
+								dass das Ziel von Outer Symlink Files am Ziel kopiert wird.
                             </p>
 
                             <img src="outerjunctionsunroll.png" alt="Unroll Outer Junctions">
@@ -952,37 +953,37 @@
                             <br />
 
                             <p>
-                                Im obigen Beispiel wird <i>Ordner1</i> in den <i>Zielordner/Ordner1</i> kopiert, und <i>Outer Junction/Symlink</i> und alle Dateien/Verzeichnisse 
+                                Im obigen Beispiel wird <i>Folder1</i> in den <i>Destination/Folder1</i> kopiert, und <i>Outer Junction/Symlink</i> und alle Dateien/Verzeichnisse 
 								unter <i>Outer Junction/Symlink Target</i> werden in den Ordner <i>Outer Junction/Symlink</i> im Zielordner kopiert.
                             </p>
 
                             <p>
-                                Das Ziel hinter dem "Ausrollen" von Outer Junctions/Symlink-Verzeichnissen ist es, alles zu erhalten, 
+                                Die Idee hinter dem 'Ausrollen' von Outer Junctions/Symlink-Verzeichnissen ist es, alles zu erhalten, 
 								mit dem die Quelle verbunden ist, und es als separate Kopie am Zielort wieder aufzubauen. 
 								Es ähnelt dem 'Haar des Elefanten'-Muster: Ziehen Sie an einem Elefantenhaar, und Sie erhalten den ganzen Elefanten.
                             </p>
 
                             <p>
-                                <i>Unroll</i> ist das Standardverhalten für Smart Copy, Smart Mirror, Delorean Copy und Clone.
+                                <i>Unroll</i> ist das Standardverhalten für Smarte Kopie, Smart Mirror, Delorean Copy und Clone.
                             </p>
 
                             <p>
-                                <b>Fortgeschrittene Gedanken zum "Ausrollen"</b>
+                                <b>Weiterführende Gedanken zum "Ausrollen"</b>
                             </p>
                             <p>
                                 Das obige Bild war nur der einfachste Fall, denn <i>Unroll</i> tut viel mehr, 
-								wenn es auf komplexe Situationen trifft. Denken Sie an einen äußeren Knotenpunkt/symbolischen Link, 
-								der selbst Knotenpunkte/symbolische Links enthält, 
-								die in Bezug auf den ersten äußeren symbolischen Link des Knotenpunktes innen liegen:
+								wenn es auf komplexe Situationen trifft. Denken Sie an einen äußeren Junction/Symbolischen Link, 
+								der selbst Junctions/Symbolische Links enthält, 
+								die in Bezug auf den ersten äußeren symbolischen Link der Junction innen liegen:
                             </p>
 
                             <img src="outerjunctionsunrollinner.png" alt="Unroll Inner Outer Junctions" />
                             <br />
                             <br />
                             <p>
-                               Im obigen Beispiel wird <i>Ordner1</i> nach <i>Ziel/Ordner1</i> und <i>Äußere Kreuzung/Symlink</i> kopiert 
-							   und wie erwartet ausgerollt, aber da <i>Kreuzung/Symlink</i> eine innere Kreuzung in Bezug auf 
-							   das Ziel <i>Äußere Kreuzung/Symlink</i> ist, wird die <i>Kreuzung/Symlink-Beziehung</i> im Ziel wiederhergestellt.
+                               Im obigen Beispiel wird <i>Folder1</i> nach <i>Destination/Folder1</i> und <i>Outer Junction/Symlink</i> kopiert 
+							   und wie erwartet ausgerollt, aber da <i>Junction/Symlink</i> eine innere Junction in Bezug auf 
+							   das Ziel <i>Outer Junction/Symlink Target</i> ist, wird die Junction/Symlink-Beziehung im Ziel wiederhergestellt.
                             </p>
 
                             <p>
@@ -994,19 +995,17 @@
                             <br />
 
                             <p>
-                                Im obigen Beispiel wird <i>Ordner1 nach <i>Ziel/Ordner1</i> und <i>Äußere Kreuzung/Symlink</i> kopiert 
+                                Im obigen Beispiel wird <i>Folder1</i> nach <i>Destination/Folder1</i> und <i>Outer Junction/Symlink</i> kopiert 
 								und wie erwartet ausgerollt, aber dann beginnt es faszinierend zu werden, 
-								denn wir haben zwei Ebenen von <i>äußeren Kreuzungen/Symlinks</i>, 
-								die alle entsprechende <i>innere Kreuzungen/Symlinks</i> haben und die ordnungsgemäß wiederhergestellt werden. 
+								denn wir haben zwei Ebenen von äußeren Junctions/Symlinks, 
+								die alle entsprechende innere Junctions/Symlinks haben und die ordnungsgemäß wiederhergestellt werden. 
 								Sobald Sie sich durch das obige Bild durchgegraben haben, haben Sie es geschafft. Es ist nicht einfach, ich weiß, 
 								aber es ist notwendig, richtig auszurollen.
-
-
                             </p>
 
                             <p>
-							Und die Komplexität nimmt zu, wenn sich symbolische Linkdateien innerhalb entrollter 
-							<i>äußerer Verzweigungen/symbolischer Links</i> befinden:
+								Und die Komplexität nimmt zu, wenn sich <b>symbolische Linkdateien</b> innerhalb entrollter 
+								äußerer Junctions/Symbolischer Links befinden:
                             </p>
 
                             <img src="outerjunctionsunrollinnersymlink.png" alt="Unroll Inner Outer Junctions">
@@ -1014,21 +1013,21 @@
                             <br />
 
                             <p>
-                                Im obigen Beispiel wird <i>Ordner1</i> nach <i>Ziel/Ordner1</i> und äußere <i>Kreuzung/Symlink</i> kopiert 
+                                Im obigen Beispiel wird <i>Folder1</i> nach <i>Destination/Folder1</i> und <i>Outer Junction/Symlink</i> kopiert 
 								und wie erwartet ausgerollt, aber er enthält einen <i>Inner Outer Symlink</i>, 
-								der auf das Inner Outer Symlink-Ziel</i> zeigt, und dies ist eine <i>innere Kreuzung/symbolic link</i> in Bezug 
-								auf äußere <i>Kreuzung/Symlink-Ziel</i>
+								der auf das <i>Inner Outer Symlink Target</i> zeigt, und dies ist eine innere Junction/Symbolic link in Bezug 
+								auf äußere <i>Outer Junction/Symlink Target</i>
                             </p>
 
                             <p>
-                                Erwähnenswert ist jedoch der <i>Symbolische Link Äußerer Symlink</i>, der ein definitiver <i>äußerer symbolischer Link</i> wäre, 
-								aber da sein Ziel, das übergeordnete Verzeichnis <i>Äußere Kreuzung/Symlink Target</i>, 
-								ausgerollt wird, wird der <i>äußere Symlink</i> zu einem <i>inneren symbolischen Link in Bezug</i> auf Ordner1.
+                                Erwähnenswert ist jedoch der Symbolische Link <i>Outer Symlink</i>, der ein äußerer symbolischer Link wäre, 
+								aber da sein Ziel, das übergeordnete Verzeichnis <i>Outer Junction/Symlink Target</i>, 
+								ausgerollt wird, wird der <i>Outer Symlink</i> zu einem inneren symbolischen Link in Bezug auf <i>Folder1</i>.
                             </p>
 
                             <p>
-                                <i>Datei1 Symlink</i> ist ebenfalls ein <i>äußerer symbolischer Link</i>, aber sein Ziel, <i>übergeordneter Ordner2</i> hat nicht das Glück, 
-								ausgerollt zu werden, so dass im Ziel <i>Datei1 Symlink</i> nicht mehr ein symbolischer Link ist, sondern eine Kopie des Ziels der symbolischen Links.
+                                <i>File1 Symlink</i> ist ebenfalls ein äußerer symbolischer Link, aber sein übergeordneter Ziel Folder, <i>Folder2</i> hat nicht das Glück, 
+								ausgerollt zu werden, so dass im Ziel <i>File1 Symlink</i> nicht mehr ein symbolischer Link ist, sondern eine Kopie des Ziels der symbolischen Links.
                             <br />
                             <br />
 
@@ -1041,13 +1040,13 @@
                             <br />
 
                             <p>
-                                Im obigen Beispiel wird <i>Ordner1</i> nach <i>Destination</i> und <i>Junction/Symlink F0</i> kopiert und wie erwartet ausgerollt, 
+                                Im obigen Beispiel wird <i>Folder1</i> nach <i>Destination</i> und <i>Junction/Symlink F0</i> kopiert und wie erwartet ausgerollt, 
 								aber er enthält innere verschachtelte Reparse-Punkte. <i>Verschachtelt</i> bedeutet, Reparse-Punkte, 
-								welche auf andere Reparse-Punkte zeigt
+								welche auf andere Reparse-Punkte zeigen.
 
                             <p>
                                 Die Ausrollfunktion eröffnet auch die Möglichkeit, 
-								<b>zirkuläre Junction/Symbolic</b> Link-Beziehungen zwischen einer Menge kopierter Elemente zu haben:
+								<b>zirkuläre Junction/Symbolic</b> Link-Beziehungen zwischen einer Menge kopierter Elemente zu erstellen:
                             </p>
 
                             <img src="outerjunctionsunrollcircularity.png" alt="Unroll Junctions Circularities">
@@ -1055,9 +1054,9 @@
                             <br />
 
                             <p>
-                                Im obigen Beispiel wird <i>Ordner1</i> über die Option --unroll nach <i>Ziel-/Ordner1</i> kopiert. 
-								<i>Smart Copy/Smart Mirror</i>- und <i>Delorean Copy-Operationen</i> können mit den oben gezeigten Zirkularitäten umgehen 
-								und Zirkularitäten aufbrechen, indem sie der betroffenen Kreuzung/symbolischen Verbindung nicht folgen.
+                                Im obigen Beispiel wird <i>Folder1</i> über die Option --unroll nach <i>Destination/Folder1</i> kopiert. 
+								Smart Copy/Smart Mirror und Delorean Copy-Operationen> können mit den oben gezeigten Zirkularitäten umgehen 
+								und Zirkularitäten aufbrechen, indem sie der betroffenen Junction/Symbolischen Link nicht folgen.
 
                             </p>
 
@@ -1078,12 +1077,12 @@
                             </p>
 
                             <p>
-                                Außerdem ist es nicht erlaubt, die Platten-ID 0xffffff-ffffff zu haben, 
+                                Außerdem ist es nicht erlaubt, die Platten-ID 0xffffff-ffffff zu verwenden, 
 								da die Algorithmen dies als internen Indikator eines FAT-Laufwerks verwenden.
                             </p>
 
                             <p>
-                                Die Option Ausrollen ermöglicht es auch, mehrere Knotenpunkte auf die gleiche Zielposition zu zeigen, 
+                                Die Option Ausrollen ermöglicht es auch, mehrere Junctions auf die gleiche Zielposition zu zeigen, 
 								was dazu führt, dass die Algorithmen die gleichen Elemente viele Male durchlaufen:
                             </p>
 
@@ -1112,7 +1111,7 @@
                             Das Beispiel in der obigen Abbildung zeigt eine solche Situation
                             <ul>
                                 <li>
-                                    X:\Src\Foo\Junction/Symlink ist ein Knotenpunkt auf einer entfernten Maschine, der auf X:\Src\Foo\Folder zeigt. 
+                                    X:\Src\Foo\Junction/Symlink ist eine Junction auf einer entfernten Maschine, der auf X:\Src\Foo\Folder zeigt. 
 									Es ist eine gültige Kreuzung.
                                 </li>
                                 <li>
@@ -1120,14 +1119,14 @@
                                 </li>
                                 <li>
                                     \\RemoteMachine\MyShare, das auf einer lokalen Maschine auf T:\ gemappt ist, 
-									ist in Ordnung, aber die Kreuzung T:\Junction/Symlink wird, wenn sie nach ihrem Ziel gefragt wird, 
-									immer noch X:\Src\Foo\Ordner angeben, sogar auf der lokalen Maschine. Man könnte erwarten, dass das Ziel T:\Ordner ist, 
-									aber nicht für Kreuzungen.
+									ist in Ordnung, aber die Junction T:\Junction/Symlink wird, wenn sie nach ihrem Ziel gefragt wird, 
+									immer noch X:\Src\Foo\Folder angeben, sogar auf der lokalen Maschine. Man könnte erwarten, dass das Ziel T:\Folder ist, 
+									aber das gilt nicht für Junctions.
                                 </li>
                                 <li>
-                                    Wenn SmartCopy/Mirror/Delorean auf eine solche Situation stößt, übersetzt es die Kreuzung korrekt, 
+                                    Wenn SmartCopy/Mirror/Delorean auf eine solche Situation stößt, übersetzt es die Junction korrekt, 
 									wenn sie auf das Laufwerk Y:\ des lokalen Rechners kopiert wird, 
-									so dass das endgültige Ziel der Kreuzung korrekt auf Y:\Dest\Bar\Ordner
+									so dass das endgültige Ziel der Kreuzung korrekt auf Y:\Dest\Bar\Folder
                                 </li>
                             </ul>
                             <br />
@@ -1138,7 +1137,7 @@
                             <b><a name="splice">Splice</a></b>
                         </td>
                         <td>
-                            <i>Splice</i> verbindet die Outer Junctions/Symlink-Verzeichnisse am Zielort wieder mit ihren ursprünglichen Zielen.
+                            <i>Splice</i> verbindet die Äusseren Junctions/Symlink-Verzeichnisse am Zielort wieder mit ihren ursprünglichen Zielen.
                             <br />
                             <br />
 
@@ -1375,7 +1374,7 @@
                 </p>
 
                 <p>
-                    ...navigate to the destination folder, press the action button, open the <b>Drop As ...</b> submenu and select <b>HardLink Clone</b>:
+                    ...navigate to the destination folder, press the action button, open the <b>Einfügen als ...</b> submenu and select <b>HardLink Clone</b>:
                 </p>
 
                 <p>
@@ -1471,7 +1470,7 @@
 
                 <p>
                     ...navigate to the destination folder, press the action button, open
-                    the <b>Drop As ...</b> submenu and select <b>Smart Mirror</b>:
+                    the <b>Einfügen als ...</b> submenu and select <b>Smart Mirror</b>:
                 </p>
 
                 <p>
@@ -1779,7 +1778,7 @@
                 <p>
                     Volume Mountpoints are created in the same way as Hardlinks, except that the Source Link is a volume rather than a file. Select a
                     local volume, click the right mouse button, choose <b>Pick Link Source</b> from the action menu, navigate to the
-                    destination folder, click the action button, open the submenu <b>Drop As ...</b> and select <b>Volume Mountpoint</b>:
+                    destination folder, click the action button, open the submenu <b>Einfügen als ...</b> and select <b>Volume Mountpoint</b>:
                 </p>
 
                 <p>
@@ -1788,7 +1787,7 @@
 
                 <p>
                     Volume Mountpoints can also be created via Drag and Drop when the selected local volume is dragged with the action button pressed to a destination
-                    folder; when the right mouse button is released, select the <b>Drop Here ...</b> submenu and then <b>Volume Mountpoint.</b>
+                    folder; when the right mouse button is released, select the <b>Hier einfügen als ...</b> submenu and then <b>Volume Mountpoint.</b>
                 </p>
 
                 <p>
@@ -1922,7 +1921,7 @@
                 <br />
 
                 <p>
-                    When the destination folder is action clicked the menu contains a <b>Drop As ...</b> submenu, to create a Symbolic Link
+                    When the destination folder is action clicked the menu contains a <b>Einfügen als ...</b> submenu, to create a Symbolic Link
                     select SymbolicLink from the submenu. Unlike Hardlinks Symbolic Links can span storage volumes.
                 </p>
 
@@ -2255,7 +2254,7 @@
                     HKEY_LOCAL_MACHINE\SOFTWARE\LinkShellExtension\ThirdPartyFileSystems<br /><br />
                 </span>
 
-                Changes to the known filesystems from the above registry key take efect after an explorer.exe restart.
+                Changes to the known filesystems from the above registry key take efect after an Explorer.exe restart.
 
                 <p>
                     If you don't know the name of the filesystem you might determine this by issuing
@@ -2413,9 +2412,9 @@
                 <p>
                     If changes were made to Link Shell Extensions language settings or
                     settings related to overlay icons, you will be asked to confirm a restart
-                    of explorer.exe, so that your changes become effective. Restarting
-                    explorer.exe means, that e.g. any copy operation or other pending operation
-                    within explorer.exe is interrupted.
+                    of Explorer.exe, so that your changes become effective. Restarting
+                    Explorer.exe means, that e.g. any copy operation or other pending operation
+                    within Explorer.exe is interrupted.
 
                     <br />
                     <br />
@@ -2644,7 +2643,7 @@
                             If you start the symlink to an .exe from a command prompt it works fine, and even third party
                             explorers like <a href="http://www.speedproject.de">SpeedCommander</a> can do this, but explorer seems to
                             have a limitation<br />
-                            Does anybody know the registry hack to enable this in explorer.exe? Drop me a line.
+                            Does anybody know the registry hack to enable this in Explorer.exe? Drop me a line.
                         </p>
                     </li>
 
@@ -2765,7 +2764,7 @@
                         <br />
 
                         <p>
-                            A: The resulting Symbolic Links show as 0 bytes in explorer.exe, that's expected.
+                            A: The resulting Symbolic Links show as 0 bytes in Explorer.exe, that's expected.
                         </p>
                     </li>
 
@@ -3705,7 +3704,7 @@
                                 </li>
 
                                 <li>
-                                    The installer restarts explorer.exe to properly
+                                    The installer restarts Explorer.exe to properly
                                     add/remove the shell extension
                                 </li>
 
