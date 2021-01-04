@@ -320,6 +320,7 @@
     <None Include="..\bat\SymStoreDel.bat" />
     <None Include="..\BuildWorld.bat" />
     <None Include="..\bat\SourceIndex.bat" />
+    <None Include="Doc\linkshellextension_de.html" />
     <None Include="install\choco\linkshellextension.nuspec">
       <SubType>Designer</SubType>
     </None>

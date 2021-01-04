@@ -1203,7 +1203,7 @@
                 <p>
                     In the above example <i>Location1</i> and <i>Location2</i> are copied to <i>Destination</i>.
                     <i>Location2/Junction20</i> is treated as inner junctions to <i>Location1/Folder10</i> in the source,
-                    and that's why <i>Destination/Junction20</i> points to <i>Destination/Folder10 in the Destination</i>.
+                    and that's why <i>Destination/Junction20</i> points to <i>Destination/Folder10</i> in the Destination.
                 </p>
                 <p>
                     The objective behind this is to treat all junctions/symlinks as inner junctions/symlins as long as
@@ -1240,7 +1240,7 @@
             </td>
 
             <td class="bodytext">
-                Smart Move enables folders with junctions and symbolic links beneath to be renamed, and the
+                Smart Move enables folders with junctions and symbolic links beneath to be renamed. The
                 junctions and symbolic links' targets are updated below that folder. Without Smart Move
                 renaming of such folders would end in dead junctions and symbolic links.
 
@@ -1368,7 +1368,7 @@
                 Outer Junctions/Symbolic links are recreated with respect to the specified
                 <a href="#outerjunctionhandling">Outer Junction/Symbolic Link handling</a>. e.g.<p>
 
-                    With Windows7/8/10 this cloning process is also available with Symbolic Links instead of Hardlinks.
+                With Windows7/8/10 this cloning process is also available with Symbolic Links instead of Hardlinks.
 
                 <p>
                     <img src="symlinkssmart.png" alt="Symbolic Link Clones the smart way" />
@@ -1401,7 +1401,7 @@
                 </p>
 
                 <p>
-                    HardLink and Symbolic Link Clones can also be created via Drag and Drop, select a folder and drag
+                    HardLink and Symbolic Link Clones can also be created via Drag and Drop. Select a folder and drag
                     with the action button depressed to a destination folder. When the action button
                     is released open the <b>Drop Here...</b> submenu and select <b>HardLink Clone</b>
                     or with Windows7/8/10 <b>Symbolic Link Clone</b>:
@@ -1520,7 +1520,7 @@
                 <table cellspacing="0" cellpadding="0" border="0" class="bodytext">
                     <tr>
                         <td class="hanger2">
-                            <b>Phase 1: Intial SmartCopy</b>
+                            <b>Phase 1: Initial SmartCopy</b>
                             <br />
                             <br />
                         </td>
@@ -1566,12 +1566,12 @@
                             </b>
                         </td>
                         <td>
-                            Mirror the folder <i>Source</i> to <i>Backup1</i>. This
+                            Mirrors the folder <i>Source</i> to <i>Backup1</i>. This
                             is shown by the green arrow:
                             <ul>
-                                <li>Keep unchanged files as hardllinks to InitialBackup.</li>
-                                <li>Delete files not anymore in Source(t+1) from Backup1.</li>
-                                <li>Copy different files from <i>Source(t+1)</i> to <i>Backup1</i>.</li>
+                                <li>Keeps unchanged files as hardllinks to InitialBackup.</li>
+                                <li>Deletes files not anymore in Source(t+1) from Backup1.</li>
+                                <li>Copies different files from <i>Source(t+1)</i> to <i>Backup1</i>.</li>
                             </ul>
                             <p>
                         </td>
@@ -1609,7 +1609,7 @@
                             <br />
                         </td>
                         <td>
-                            The folder <i>Backup1</i> is Hardlink Cloned to <i>Backup2,</i>
+                            The folder <i>Backup1</i> is Hardlink Cloned to <i>Backup2</i>,
                             which ties <i>Backup1</i> and <i>Backup2</i>. This is shown by the red arrow.<br />
                             <br />
                             <p>
@@ -1621,12 +1621,12 @@
                             <br />
                         </td>
                         <td>
-                            Mirror the folder <i>Source(t+2)</i> to <i>Backup2</i>.
+                            Mirrors the folder <i>Source(t+2)</i> to <i>Backup2</i>.
                             This is shown by the green arrow:
                             <ul>
-                                <li>Keep unchanged files as hardllinks to Backup1.</li>
-                                <li>Delete files not anymore in Source(t+2) from Backup2.</li>
-                                <li>Copy newer files from <i>Source(t+2)</i> to <i>Backup2</i>.</li>
+                                <li>Keeps unchanged files as hardllinks to Backup1.</li>
+                                <li>Deletes files not anymore in Source(t+2) from Backup2.</li>
+                                <li>Copie newer files from <i>Source(t+2)</i> to <i>Backup2</i>.</li>
                             </ul>
                             <p>
                         </td>
@@ -1649,7 +1649,8 @@
                 </p>
                 <img src="deloreandrop.png" alt="Pick a directory for DeLorean Copy" />
 
-                <br /><p>
+                <br />
+                <p>
                     If a DeLorean Copy was dropped the first time onto a directory, the operations, which are described under
                     phase 1 in the above descriptions, namely a Smart Copy, is performed. Link Shell Extension automatically
                     generated the folder name for the destination by appending a timestamp.<br />
@@ -1778,8 +1779,7 @@
             <td class="bodytext">
                 <p>
                     Volume Mountpoints provides functionality to
-                    map complete local volumes onto arbitrary disk locations. Volume Mountpoints
-                    were not supported in NTFS Version 4.0
+                    map complete local volumes onto arbitrary disk locations. 
                 </p>
 
                 <p>
@@ -1837,10 +1837,8 @@
             </td>
 
             <td class="bodytext">
-                As described in the <a href="#backgrounders">backgrounders section</a> within the &#8220;default&#8221; data stream of all data objects
-                NTFS maintains a reference count how many NTFS directory entries refer to object. In most scenarios each entry will
-                refer a different folder, although it is possible to have multiple links to the same data object in the one folder,
-                providing they have folder unique names
+                As described in the <a href="#backgrounders">backgrounders section</a> 
+                NTFS maintains a reference count for each data stream object how many NTFS directory entries refer to that objects.
                 <br />
                 <br />
 
@@ -1986,22 +1984,6 @@
                 Overlay icons for Symbolic Links can also be <a href="#customoverlayicons">customized.</a>
                 <p>
                     <br />
-
-
-
-                    <b>@Microsoft: Symbolic links without elevation:</b> Lets see if this paragraph
-                    is read by someone. I don't know if it is a bug or a feature, but one
-                    can create symbolic links without elevation, if you create a hardlink
-                    from a symbolic link. That sounds weird, but it works. And by a closer
-                    look at this stuff, it can be seen, that LSE really uses CreateHardlink()
-                    and a symbolic link is created. MS guys! Your opinion?
-                <p>
-
-                    <b>@Microsoft: Symbolic can span network drives</b> as long as the target is a
-                    drive letter mapped drive, but it fails for UNC names in symbolic link target with
-                    error ERROR_LOGON_FAILURE(1326), even if the network is connected properly.
-                </p><br />
-
             </td>
         </tr>
 
@@ -2014,7 +1996,7 @@
             <td class="bodytext">
                 <p>
                     Simply select a hardlinked file and select
-                    <a href="#linkproperties">Properties </a>from the right click action menu:
+                    <a href="#linkproperties">Properties </a>from the action menu:
                 <p>
 
                 <p>
@@ -2122,13 +2104,6 @@
                 count of a hardlink is reported via SMB1.0 in 90% correctly, so please
                 be aware of this restriction.<p>
 
-                    <b>@Microsoft</b>: Why does this happen in 90%? I have scanned my code
-                    in the meantime many times, and it is obvious, that the same call
-                    sometimes succeeds and sometimes not. Why??? If you wanna hunt
-                    down a bug in your code, please contact me!
-                <p>
-
-
                 <p>
                     LSE supports both, mapped network drives and UNC paths.
                 <p>
@@ -2162,8 +2137,6 @@
                     which is provided by a Windows7/8/10 machine, you will not be able to see overlay icons
                     for hardlinked files, but you will be able to create them remotley.<br />
                 <p>
-
-                    <b>@Microsoft:</b> Is this implementation since SMB2.0 a bug or a feature?
 
                     <br />
                     <br />
@@ -2213,7 +2186,7 @@
             </td>
             <td class="bodytext">
                 <p>
-                    With the subst.exe command one can create driveletters, which point to certain path on a NTFS volume. This means that two
+                    With the subst.exe command one can create driveletters, which point to a certain path on a NTFS volume. This means that two
                     different driveletters in the end might resolve to locations on the same NTFS volume. <br />
                     Link Shell Extension checks these situations when it comes to allow the creation of hardlinks, and as a consequence allows
                     the creation of hardlinks among different logical drives if they resolve to the same NTFS volume.
@@ -2765,7 +2738,7 @@
 
                             </ul>
                         </p>
-
+                    </li>
 
                     <li>
                         <b>
