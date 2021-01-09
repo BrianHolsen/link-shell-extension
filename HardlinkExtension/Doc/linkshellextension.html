@@ -289,10 +289,14 @@
 
                 <b>Uninstall</b><br />
                 Link Shell Extension can also be uninstalled silently by issuing
+                <br />
+                <br />
 
                 <span class="ascode">
                     <b>$LSEInstallDir/uninst-HardLinkShellExt_$(platform).exe /S </b>
                 </span>
+                <br />
+                <br />
 
                 If the /S switch is used during uninstall, explorer.exe will be restarted after uninstallation, to make Link Shell Extension
                 inactive immediately.
@@ -400,7 +404,7 @@
             <td class="bodytext">
                 Since LSE supports <a href="#junctions">Junction</a>,
                 <a href="#hardlinkclones">Clones</a> and <a href="#symboliclinks">Symbolic Links</a>,
-                when one or more folders are selected as the Source Links, they can be dropped in several ways.
+                when one or more folders are selected as the Source, they can be dropped in several ways.
                 <br />
                 <br />
                 To avoid crowding the popup menu, a submenu is provided that contains the different types of Links applicable to folders.
@@ -533,11 +537,6 @@
                 double clicked in explorer the error ERROR_INVALID_REPARSE_DATA(4392), will
                 show up and tell you that the info in the reparse point is illegal, even if
                 it is not.
-                <br />
-                <br />
-
-                <b>@Microsoft</b>: Why didn't you enable this feature for junctions, even if the syntax
-                for UNC junctions is defined: \??\UNC\server\share. Any help appreciated.
                 <br />
                 <br />
 
@@ -770,6 +769,8 @@
                         </td>
                     </tr>
                 </table>
+                <br />
+                <br />
                 Windows7/8/10 support Symbolic Links, which behave as follows during
                 Smart Copy:
                 <br />
@@ -781,6 +782,8 @@
 
                 By closely looking at the above picture one can find three different types of files/symbolic
                 links:
+                <br />
+                <br />
                 <table cellspacing="0" cellpadding="0" border="0" class="bodytext">
                     <tr>
                         <td class="hanger2">
@@ -940,6 +943,8 @@
                                 <b>Enabling Crop for Outer Junction/Symbolic Links</b><br />
                                 <i>Crop</i> can be selected via the <a href="#configuration">configuration tool.</a>
                             </p>
+                            <br />
+                            <br />
                         </td>
                     </tr>
                     <tr>
@@ -1183,6 +1188,8 @@
                             <p>
                                 <i>Splice</i> can be selected via the <a href="#configuration">configuration tool.</a>
                             </p>
+                            <br />
+                            <br />
                         </td>
                     </tr>
                 </table>
@@ -1263,16 +1270,22 @@
                     <tr>
                         <td class="hanger2">
                             <b>Normal Folders</b>
+                            <br />
+                            <br />
                         </td>
 
                         <td>
                             The folder 'Folder 3' is a normal folder. It gets moved with its content straight forward.<p>
+                            <br />
+                            <br />
                         </td>
                     </tr>
 
                     <tr>
                         <td class="hanger2">
                             <b>Inner Junctions<br />Symlinks</b>
+                            <br />
+                            <br />
                         </td>
 
                         <td>
@@ -1281,6 +1294,8 @@
                             points to a folder, which is below the common anchor 'Folder 1'.<p>
                                 <i>Inner Junctions/Symlink</i> are updated properly via Smart Move in the destination location.
                             <p>
+                            <br />
+                            <br />
 
                         </td>
                     </tr>
@@ -1288,6 +1303,8 @@
                     <tr>
                         <td class="hanger2">
                             <b>Outer Junctions<br />Symlinks</b>
+                            <br />
+                            <br />
                         </td>
 
                         <td>
@@ -1299,6 +1316,8 @@
                                 Please note that this is different to Smart Copy, which has <a href="#outerjunctionhandling"> 3 different ways </a>
                                 to deal with Outer Junctions/Symbolic Links.
                             </p>
+                            <br />
+                            <br />
                         </td>
                     </tr>
                 </table>
@@ -1840,6 +1859,8 @@
             <td class="bodytext">
                 As described in the <a href="#backgrounders">backgrounders section</a> 
                 NTFS maintains a reference count for each data stream object how many NTFS directory entries refer to that objects.
+
+
                 <br />
                 <br />
 
@@ -2170,7 +2191,7 @@
                 <a name="verylongpath"><b>Very long Path</b></a>
             </td>
             <td>
-                The Win32 API supports pathnames up to 256 characters, thus limiting all applications to that length for pathnames.
+                Explorer supports pathnames up to 256 characters, thus limiting all applications to that length for pathnames.
                 <p>
                     On the other hand NTFS supports pathnames with up to 32767 characters, so one might
                     have already experienced pathnames, which are longer than 256 characters. To deal
