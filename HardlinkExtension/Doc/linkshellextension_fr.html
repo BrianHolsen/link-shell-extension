@@ -2695,39 +2695,15 @@
                             <span class="ascode">
                                 <br />
 
-                                HardLinkMenu --> <font color="red">0</font>HardLinkMenu<br />
-                                IconOverlayHardLink --> <font color="red">0</font>IconOverlayHardLink<br />
-                                IconOverlaySymbolicLink --> <font color="red">0</font>IconOverlaySymbolicLink<br /><br />
+                                IconOverlayHardLink --> <font color="red">'&nbsp'</font>IconOverlayHardLink<br />
+                                IconOverlayJunction --> <font color="red">'&nbsp'</font>IconOverlayJunction<br />
+                                IconOverlaySymbolicLink --> <font color="red">'&nbsp'</font>IconOverlaySymbolicLink<br /><br />
                             </span>
 
                             puis soit redémarrez l'explorateur ou déconnectez-vous et reconnectez-vous. Le truc ici est de changer l'ordre alphabétique
                             en le commençant par 0.
 
 
-                            Sous Windows 10, un 0 peut être insuffisant mais commencer par un espace devrait faire l'affaire. Voir ci-dessous :
-
-                        </p>
-                    </li>
-
-                    <li>
-                        <b>
-                            <a name="faq12">Q</a>: L'icône superposée de lien symbolique ne s'affiche pas sous Windows 10
-                        </b>
-                        <br />
-
-                        <p>
-                            A: Voir la FAQ ci-dessus et augmenter la priorité de IconOverlaySymbolicLink de <br />
-                            <span class="ascode">
-                                HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers<br /><br />
-                            </span>
-                            en le faisant commencer par 2 espaces.
-                            <span class="ascode">
-                                <br />
-                                IconOverlaySymbolicLink --> <font color="red">'&nbsp&nbsp'</font>IconOverlaySymbolicLink<br /><br />
-                            </span>
-
-                            et soit redémarrer l'explorateur  ou vous déconnecter puis vous reconnecter. L'astuce ici est de changer l'ordre alphabétique
-                            en faisant commencer la clé par des espaces.
                         </p>
                     </li>
 
