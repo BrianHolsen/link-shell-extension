@@ -2677,8 +2677,8 @@
                         <p>
                             R : Le nombre d'icônes de superposition différentes que le système supporte est limité
                             par l'espace par la place disponible pour les icônes de superposition dans la liste système image.
-                            Il y a actuellement quinze slots affectés pour les icônes de superposition, dont certains sont réservés
-                            pour le système.
+                            Il y a actuellement 11 slots affectés sous Windows 10 pour les icônes de superposition, dont certains
+                            sont réservés pour le système.
                         </p>
                         <p>
                             Tout est contrôlé par l'ordre alphabétique des OverlayHandlers dans<br /><br />
@@ -2688,10 +2688,10 @@
                             </span>
 
                             Si l'OverlayHandlers pour LinkShellExtension se voit affecter un slot supérieur à 15 sous Windows 32bit ou
-                            supérieur à 11 sous Windows 64bit, alors l'icône de superposition de LSE ne sera pas vue.
+                            supérieur à 11 sous Windows 10, alors l'icône de superposition de LSE ne sera pas vue.
                         </p>
                         <p>
-                            Pour booster manuellement la priorité des icônes de superposition de LSE ouvrez la clé de registre ci-dessus par regedit et renommez <br />
+                            Pour booster manuellement la priorité des icônes de superposition de LSE ouvrez la clé de registre ci-dessus par regedit ajoutez un espace devant<br />
                             <span class="ascode">
                                 <br />
 
@@ -2701,9 +2701,9 @@
                             </span>
 
                             puis soit redémarrez l'explorateur ou déconnectez-vous et reconnectez-vous. Le truc ici est de changer l'ordre alphabétique
-                            en le commençant par 0.
-
-
+                            en le commençant par un espace.Vous risquez de vous retrouver dans une course au sommet en ajoutant de plus en plus d'espaces, car d'autres
+                            OverlayHandlers tels que les "DropBox" <a href="https://stackoverflow.com/questions/41697737/shelliconoverlayidentifiers-and-windows10">
+                            ont déjà ajouté quelques espaces.</a>
                         </p>
                     </li>
 
@@ -2792,7 +2792,7 @@
                         </p>
                     </li>
 
-                    <!-- free FAQ13, FAQ16 -->
+                    <!-- free FAQ12, FAQ13, FAQ16 -->
 
                 </ul>
             </td>
