@@ -2245,11 +2245,12 @@
                     <a href="https://blogs.msdn.com/b/b8/archive/2012/01/16/building-the-next-generation-file-system-for-windows-refs.aspx">ReFS</a>
                     Dateisystem ein, das der designierte Nachfolger von NTFS ist. Doch die erste
                     Implementierung von ReFS kann zwar nette Dinge, lässt aber ein paar wichtige Funktionen von NTFS vermissen, wie etwa die Hardlink-Unterstützung.
+                    Dieses Manko wird in ReFs3.5 behoben.
                     <br />
 
                     Link Shell Extension unterstützt ReFS, so dass man Symbolische Links, Bereitstellungspunkte, Junctions auf ReFS-Volumes erstellen kann.
-                    Aber sie gibt eine Fehlermeldung aus, wenn ein Hardlink auf einem ReFS-Volume erstellt werden soll. Was sind also die Auswirkungen auf
-                    Link Shell Extension im Detail:
+                    Unter ReFs < 3.5 wird eine Fehlermeldung ausgegeben, wenn ein Hardlink auf einem ReFS-Volume erstellt werden soll. Die Auswirkungen auf
+                    Link Shell Extension sind im Detail:
                     <ul>
                         <li>ReFS-Laufwerke als Ziel von <a href="#deloreancopy">Delorean Kopien</a> werden fehlschlagen, zumindest beim Erstellen des zweiten Backups in einem Delorean Set.</li>
                         <li><a href="#smartcopy">SmartCopy</a>/<a href="#smartmirror">SmartMirror</a> wird als Ziel für <a href="#saturatedhardlinks">Hardlinks</a> innerhalb der Quelle fehlschlagen.</li>

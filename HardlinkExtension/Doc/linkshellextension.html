@@ -2244,12 +2244,13 @@
                     With Windows Server 2012 Microsoft introduced the
                     <a href="https://blogs.msdn.com/b/b8/archive/2012/01/16/building-the-next-generation-file-system-for-windows-refs.aspx">ReFS</a>
                     filesystem, which is the designated successor to NTFS. But the first
-                    implementation of ReFS can do nice things, but lacks a few important features from NTFS like the Hardlink support.
+                    implementation of ReFS can do nice things, but lacks a few important features from NTFS like the Hardlink support. 
+                    Hardlinks are avaialble with ReFs3.5
                     <br />
 
                     Link Shell Extension supports ReFS so that one can create Symbolic Links, Mountpoints, Junctions on ReFS volumes.
-                    But it will throw an error message if a hardlink is about to be created on a ReFS volume. So what are the impacts on
-                    Link Shell Extension in detail:
+                    With ReFs version smaller than 3.5 it will throw an error message if a hardlink is about to be created on a ReFS volume. The impact on
+                    Link Shell Extension in detail is:
                     <ul>
                         <li>ReFS drives as the destination of <a href="#deloreancopy">Delorean Copies</a> will for sure fail, at least when creating the second backup in a Delorean set.</li>
                         <li><a href="#smartcopy">SmartCopy</a>/<a href="#smartmirror">SmartMirror</a> will fail as destination for <a href="#saturatedhardlinks">hardlinks</a> within the source.</li>
