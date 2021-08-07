@@ -463,7 +463,6 @@ wmain(
             else
               RawArgs.push_back(wstring(argv[optind - 1]));
 
-//            for (_StringListIterator iter = RawArgs.begin(); iter != RawArgs.end(); ++iter)
             for (auto iter : RawArgs)
             {
 			        WildCard2RegExp(iter);
