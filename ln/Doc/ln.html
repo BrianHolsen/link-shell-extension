@@ -5449,7 +5449,7 @@
                                 <li>Documented the <a href="#destination">--destination</a> option.</li>
                                 <li>WindowsXP: Symbolic links across drives didn't work.</li>
                                 <li>WindowsXP: Symbolic links to <a href="#symbolicvolumeguid">Volume GUIDs</a> didn't work.</li>
-                                <li>WindowsXP: Symbolic links between <a href="#verylongpath">very long path</a> didn't work.</li>
+                                <li>WindowsXP: Symbolic links between <a href="#deeppathsupport">very long path</a> didn't work.</li>
                                 <li>WindowsXP: Lots of tweaks here and there.</li>
 
                                 <!-- 2.8.5.1 -->
@@ -5595,7 +5595,7 @@
                                 <li><a href="#multiplesource">Multiple source locations </a> can be specified with SmartCopy, DeloreanCopy and SmartClone.</li>
                                 <li><a href="#smartrename">SmartRename</a> was introduced.</li>
                                 <li>SmartCopy, SmartMirror and DeloreanCopy accept FAT drives as source directory.</li>
-                                <li>Support for <a href="#deeppath">DeepPath operations</a> in SmartCopy, DeloreanCopy and SmartClone, SmartMove.</li>
+                                <li>Support for <a href="#deeppathsupport">DeepPath operations</a> in SmartCopy, DeloreanCopy and SmartClone, SmartMove.</li>
                                 <li>Fixed a problem in  <a href="#smartmove">SmartMove</a> which created dangling symbolic links, when using relative symbolic links in certain situations.</li>
                                 <li>Fixed the problem of dangling junctions/symbolic links caused in certain situations with the multiple source option.</li>
                                 <li>Create <a href="bat/DeLoreanCopy.bat">DeloreanCopy.bat</a> is now independent of region specific date time settings.</li>
@@ -5603,7 +5603,7 @@
                                 <li>Support for <a href="#symboliclinksforwindowsxp">symbolic links under WXP</a>.</li>
                                 <li>Can handle <a href="#substhandling">subst.exe created</a> driveletters.</li>
                                 <li>Added a <a href="#truesize">--truesize</a> option.</li>
-                                <li>More detailed <a href="#xpdanglingjunctions">reporting</a> when the restore of a dangling junction under windows XP fails.</li>
+                                <li>More detailed <a href="#danglingjunctions">reporting</a> when the restore of a dangling junction under windows XP fails.</li>
 
                                 <li>Create Symbolic Link sometimes did not create absolute links when needed in certain situations.</li>
                             </ul>
@@ -5649,7 +5649,7 @@
                         <td align="left" class="bodytext">
                             <a name="2550">Version 2.5.5.5</a>
                             <ul>
-                                <li>Added more powerful options to exclude files/directories via <a href="#excludewildcards">wildcards/regular expressions</a>.</li>
+                                <li>Added more powerful options to exclude files/directories via <a href="#excludewildcardsfiles">wildcards/regular expressions</a>.</li>
                                 <li>Changed the regular expression machine to <a href="https://laurikari.net/tre">tre-0.8.0</a>.</li>
                                 <li>Delorean Copy speed improvements by about 35% since 2.500 (without virus scanner).</li>
                                 <li>Introduced <a href="#deloreancopy">DeLorean Copy</a>, which is a way of creating incremental copies using hardlinks.</li>
@@ -5717,7 +5717,7 @@
                         <td align="left" class="bodytext">
                             Version 1.997 Introduced the <a href="#smartcopy">--copy</a>
                             option<br />
-                            Enabled the <a href="#symbolic">--symbolic</a> option for Vista<br />
+                            Enabled the <a href="#symboliclinks">--symbolic</a> option for Vista<br />
                             Introduced the <a href="#listsiblings">--list</a> option under Vista<br />
                             Added long (32k) path support<br />
                             <br />
