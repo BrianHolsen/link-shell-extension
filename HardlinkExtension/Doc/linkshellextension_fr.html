@@ -3056,7 +3056,7 @@
                                 <li>La cible des points de montage peut être modifiée depuis le <a href="#linkproperties">Lien des Propriétés</a>.</li>
                                 <li>LSE peut maintenant traiter les <a href="#mountpointcopy">Points de Montage</a> lors des opérations de XXX Intelligentes ou Delorean</li>
                                 <li>WindowsXP: Les liens Symboliques inter-disques ne fonctionnaient pas.</li>
-                                <li>WindowsXP: Les liens Symboliques vers des <a href="https://schinagl.priv.at/nt/ln/ln.html#volumeguidsupport">Volume GUIDs</a> ne fonctionnaient pas.</li>
+                                <li>WindowsXP: Les liens Symboliques vers des Volume GUIDs ne fonctionnaient pas.</li>
                                 <li>WindowsXP: Les liens Symboliques entre <a href="#verylongpath">de très longs chemins</a> ne fonctionnaient pas.</li>
                                 <li>WindowsXP: Nombreuses améliorations par-ci par-là.</li>
                                 <li>Un chemin UNC comme Source de Lien de "Copie Intelligente/Miroir/Delorean/Lien symbolique de Clonage" fonctionne maintenant.</li>
@@ -3162,9 +3162,9 @@
                                 <li>Nested junctions and symbolic links ( aka junctions on junction on junctions ... ) are now properly restored in any situation.</li>
                                 <li>Smartmove had problems with relative symbolic links in rare situations.</li>
                                 <li>Italian translation updated.</li>
-                                <li>Support for <a href="#symboliclinksforwindowsxp">symbolic links under Window XP</a>.</li>
+                                <li>Support for symbolic links under Window XP.</li>
                                 <li>Can handle <a href="#substhandling">subst.exe created</a> driveletters.</li>
-                                <li>Overlay Icons for <a href="#symboliclinksforwindowsxp">symbolic links under Window XP</a> are available now.</li>
+                                <li>Overlay Icons for symbolic links under Window XP are available now.</li>
                                 <li>Fixed a few bugs related to WindowsXP and symbolic links handling.</li>
                                 <li>Elevation to LSEUacHelper.exe now happens only if <a href="#VistaAndUAC">UAC</a> is on, or the elevation is really neccesary.</li>
                                 <li>Fixed a problem with the creation of absolute symbolic links to directories.</li>
@@ -3181,7 +3181,7 @@
                                 <li>Non administrators could not create symbolic links.</li>
 
                                 <li>With XP and the symlink driver installed the Delete Junction menu didn't show up.</li>
-                                <li>The status of the <a href="#SymbolicLinkPrivilege">privilege for Symbolic Link Creation</a> is checked, so that UAC can be avoided</li>
+                                <li>The status of the <a href="#changesymboliclinkprivilege">privilege for Symbolic Link Creation</a> is checked, so that UAC can be avoided</li>
 
                                 <li>Fixed deployment problems for the Win32bit version.</li>
                             </ul>
@@ -3264,7 +3264,7 @@
                                 <li>Hardlink Clone and Symboliclink Clone have been extended so that <a href="#hardlinkclones">Inner Junctions and inner Symbolic Links</a> are properly handled.</li>
                                 <li>LSE now supports also the replacement of <a href="#replacementjunction">Mountpoints and Symbolic Links</a>.</li>
                                 <li>LSE shows a dialog box whether explorer should be <a href="#installation">restarted</a> or not during non silent installation.</li>
-                                <li>Under Windows Vista and Window7 the <i><a href="#junctionwindows7">Delete Junction</a></i> menu doe not show up anymore.</li>
+                                <li>Under Windows Vista and Window7 the <i>Delete Junction</i> menu doe not show up anymore.</li>
                             </ul>
                         </td>
                     </tr>
@@ -4205,9 +4205,8 @@
                             <b>Symbolic Link Driver<br /> for Windows XP</b>
                         </td>
                         <td align="left" class="bodytext">
-                            Un driver pour activer même sous WindowsXP la <a href="#symboliclinksforwindowsxp">
-                                fonctionnalité de lien symbolique
-                            </a> est mis à disposition par Masatoshi Kimura. Vous pouvez télécharger le
+                            Un driver pour activer même sous WindowsXP la fonctionnalité de lien symbolique
+                            est mis à disposition par Masatoshi Kimura. Vous pouvez télécharger le
                             driver depuis sa page web ou depuis mon site agissant comme miroir.
 
                             <br />
