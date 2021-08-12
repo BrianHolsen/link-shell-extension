@@ -1351,7 +1351,7 @@
                 </p>
 
                 <p>
-                    If a LocalizedResourceName is given via desktop.ini and the very folder is readonly, SmartMove will not work.
+                    Si un LocalizedResourceName est entré via desktop.ini et que le dossier en question est en lecture seule, SmartMove (déplacement intelligent) ne fonctionnera pas.
                     This seems to be a bug in Shell Explorer ever since. ICopyHook::CopyCallback() is not called at all in this
                     situation.
                 </p>
@@ -1479,7 +1479,7 @@
                     Dans ce cas, la création de liens physiques clones peut être activée en accordant un accès en écriture aux fichiers sources à l'utilisateur qui
                     créera un clone de lien physique, ou à tous les utilisateurs dans le cas d'un utilisateur unique.
                     <br /><br />
-                <p>
+                </p>
                 <p>
                     <b>Ligne de Commande<br /></b>
                     La fonctionnalité de Clonage via des Liens Physiques ou des Liens Symboliques est également accessible par
@@ -2245,12 +2245,12 @@
                     <a href="https://blogs.msdn.com/b/b8/archive/2012/01/16/building-the-next-generation-file-system-for-windows-refs.aspx">ReFS</a>,
                     qui est désigné comme le successeur de NTFS. La première
                     implémentation de ReFS peut faire des choses certes très bien, mais il lui manque quelques fonctionnalités importantes de NTFS comme le support des liens physiques.
-                    Hardlinks are avaialble with ReFs3.5
+                    Les liens physiques sont disponibles sous ReFs3.5
                     <br />
 
                     Link Shell Extension supporte ReFS de façon à ce qu'on puisse créer des Liens Symboliques, des Points de Montage, Jonctions sur des volumes ReFS.
-                    Mais il génèrera un message d'erreur si on crée un lien physique interne sur un volume ReFS. Aussi quelles sont les conséquences
-                    en détails pour Link Shell Extension :
+                    Mais, pour les versions antérieures à la 3.5, il génèrera un message d'erreur si on crée un lien physique interne sur un volume ReFS. Aussi les conséquences
+                    en détails pour Link Shell Extension sont :
                     <ul>
                         <li>Donner des disques ReFS en tant que destination de <a href="#deloreancopy">Copies Delorean</a> échouera à tous coups, au moins lors de la création d'un second backup d'un ensemble Delorean.</li>
                         <li><a href="#smartcopy">Une Copie Intelligente</a>/<a href="#smartmirror">Miroir Intelligent</a> échouera comme destination pour <a href="#saturatedhardlinks">des liens physiques</a> internes à la source.</li>
