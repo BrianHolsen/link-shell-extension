@@ -1528,16 +1528,16 @@ Mirror(
 
 #if 0
   _ArgvList CloneDestination;
-  for (const auto& srcDir : aSourceDirList)
+  for (auto& srcDir : aSourceDirList)
   {
-    srcDir->ArgvDest = aDestination.Argv;
-    if (!(srcDir->Flags & _ArgvPath::Anchor))
+    srcDir.ArgvDest = aDestination.Argv;
+    if (!(srcDir.Flags & _ArgvPath::Anchor))
     {
       // Add the first non-anchor as 'destination', which in this case is the source location
       if (aDestination.ArgvDest.empty())
       {
-        aDestination.Argv = srcDir->ArgvDest;
-        aDestination.ArgvDest = srcDir->Argv;
+        aDestination.Argv = srcDir.ArgvDest;
+        aDestination.ArgvDest = srcDir.Argv;
       }
     }
   }
