@@ -1154,8 +1154,17 @@ Delorean(
   CopyStatistics	MirrorStatistics;
   
   // Assign each source location the same destination
-  for (_ArgvListIterator iter = aSourceDirList.begin(); iter != aSourceDirList.end(); ++iter)
-    iter->ArgvDest = aBackupPath.Argv;
+  for (auto& srcDir : aSourceDirList)
+  {
+    // Do not mirror from src dirs, which are not available
+    if (INVALID_FILE_ATTRIBUTES == srcDir.FileAttribute)
+    {
+      fwprintf(gStdOutFile, L"ERROR: DeloreanCopy Source directory %s does not exist.\n", srcDir.ArgvOrg.c_str());
+      return ERR_DELOREANCOPY_FAILED;
+    }
+    srcDir.ArgvDest = aBackupPath.Argv;
+
+  }
 
 #if defined SEPERATED_CLONE_MIRROR
   MirrorList.FindHardLink (aSourceDirList, 0, &MirrorStatistics, &PathNameStatusList, nullptr);
