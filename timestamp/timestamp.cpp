@@ -38,39 +38,39 @@ static struct option	long_options[] =
 void
 Usage()
 {
-  _tprintf (_T("Timestamp 1V37. Set a timestamp on one or more files\n"));
-	_tprintf (_T("Usage. timestamp [options] [commands] file(s)\n\n"));
-	_tprintf (_T("Commands\n"));
-	_tprintf (_T("  -A, --attr [+|-(anshr)] SRCFILE                      Show/Set file attributes\n"));
-	_tprintf (_T("  -b, --backup SRCFILE DSTFILE(s)    Copy all stamps from source to destination\n"));
-	_tprintf (_T("  -t, --ctime HEXNUM FILE(s)               Specify time as CTIME in hexadecimal\n"));
-	_tprintf (_T("  -p, --eaprobe SRCFILE                          Check if a file has EA records\n"));
-	_tprintf (_T("  -S, --easave SRCFILE                             Save the EA records to files\n"));
-	_tprintf (_T("  -P, --eawrite DSTFILE FILE1 FILE2 FILE3 ...    Check if a file has EA records\n"));
-	_tprintf (_T("  -i, --fileid  SRCFILE                            Prints the file-id of a file\n"));
-	_tprintf (_T("  -r, --readfile  SRCFILE                Read file to update hardlink timestamp\n"));
-  _tprintf (_T("  -R, --sparsemap SRCFILE                                  Print the sparse map\n"));
-  _tprintf (_T("  -Q, --sparsecreate SRCFILE                              Create  a sparse file\n"));
-  _tprintf (_T("  -y, --streamprobe SRCFILE:StreamName  Check if a file has alternative streams\n"));
-  _tprintf (_T("  -Y, --streamwrite text SRCFILE:StreamName    Write text to alternative stream\n"));
-	_tprintf (_T("  -x, --xattr SRCFILE                                  Show extended attributes\n"));
-	_tprintf (_T("\nOptions\n"));
-	_tprintf (_T("  -a, --accesstime\n"));
-	_tprintf (_T("  -c, --creationtime\n"));
-	_tprintf (_T("  -f, --filetime                           Specify format of timestamp printout\n"));
-	_tprintf (_T("  -e, --tell                                             Print the current time\n\n"));
-	_tprintf (_T("  -w, --writetime\n"));
-	_tprintf (_T("  -X, --recursive\n"));
-	_tprintf (_T("Samples\n"));
-	_tprintf (_T("  timestamp file.txt \n"));
-	_tprintf (_T("  timestamp --accesstime file.txt\n"));
-	_tprintf (_T("  timestamp --writetime file.txt\n"));
-	_tprintf (_T("  timestamp --accesstime --writetime --creationtime file.txt\n"));
-	_tprintf (_T("  timestamp --writetime --creationtime --backup sourcefile.txt file.txt\n"));
-	_tprintf (_T("  timestamp --writetime --ctime 4e1402f1 file.txt\n"));
-	_tprintf (_T("  timestamp --filetime --writetime file.txt\n"));
-	_tprintf (_T("  timestamp --backup sourcefile.txt destfile.txt\n"));
-	_tprintf (_T("  timestamp --attr +s+h+r destfile.txt\n"));
+  _tprintf(_T("Timestamp 1V38. Set a timestamp on one or more files\n"));
+  _tprintf(_T("Usage. timestamp [options] [commands] file(s)\n\n"));
+  _tprintf(_T("Commands\n"));
+  _tprintf(_T("  -A, --attr [+|-(anshr)] SRCFILE                      Show/Set file attributes\n"));
+  _tprintf(_T("  -b, --backup SRCFILE DSTFILE(s)    Copy all stamps from source to destination\n"));
+  _tprintf(_T("  -t, --ctime HEXNUM FILE(s)               Specify time as CTIME in hexadecimal\n"));
+  _tprintf(_T("  -p, --eaprobe SRCFILE                          Check if a file has EA records\n"));
+  _tprintf(_T("  -S, --easave SRCFILE                             Save the EA records to files\n"));
+  _tprintf(_T("  -P, --eawrite DSTFILE FILE1 FILE2 ...   Write File<X> as EA record to DSTFILE\n"));
+  _tprintf(_T("  -i, --fileid SRCFILE                             Prints the file-id of a file\n"));
+  _tprintf(_T("  -r, --readfile SRCFILE                 Read file to update hardlink timestamp\n"));
+  _tprintf(_T("  -R, --sparsemap SRCFILE                                  Print the sparse map\n"));
+  _tprintf(_T("  -Q, --sparsecreate SRCFILE                               Create a sparse file\n"));
+  _tprintf(_T("  -y, --streamprobe SRCFILE:Stream             Check if Stream exits on SRCFILE\n"));
+  _tprintf(_T("  -Y, --streamwrite text SRCFILE:Stream         Write text to Stream on SRCFILE\n"));
+  _tprintf(_T("  -x, --xattr SRCFILE                                  Show extended attributes\n"));
+  _tprintf(_T("\nOptions\n"));
+  _tprintf(_T("  -a, --accesstime\n"));
+  _tprintf(_T("  -c, --creationtime\n"));
+  _tprintf(_T("  -f, --filetime                           Specify format of timestamp printout\n"));
+  _tprintf(_T("  -e, --tell                                             Print the current time\n\n"));
+  _tprintf(_T("  -w, --writetime\n"));
+  _tprintf(_T("  -X, --recursive\n"));
+  _tprintf(_T("Samples\n"));
+  _tprintf(_T("  timestamp file.txt \n"));
+  _tprintf(_T("  timestamp --accesstime file.txt\n"));
+  _tprintf(_T("  timestamp --writetime file.txt\n"));
+  _tprintf(_T("  timestamp --accesstime --writetime --creationtime file.txt\n"));
+  _tprintf(_T("  timestamp --writetime --creationtime --backup sourcefile.txt file.txt\n"));
+  _tprintf(_T("  timestamp --writetime --ctime 4e1402f1 file.txt\n"));
+  _tprintf(_T("  timestamp --filetime --writetime file.txt\n"));
+  _tprintf(_T("  timestamp --backup sourcefile.txt destfile.txt\n"));
+  _tprintf(_T("  timestamp --attr +s+h+r destfile.txt\n"));
 }
 
 void UnixTimeToFileTime(time_t t, LPFILETIME pft)
