@@ -9,6 +9,7 @@
 const char						exec_name[] = "timestamp";
 bool                  gFileTimeFormat = false;
 bool                  gRecursive = false;
+bool                  gReparse = false;
 
 static struct option	long_options[] =
 {
@@ -31,6 +32,7 @@ static struct option	long_options[] =
   { "sparsecreate", required_argument, NULL, 'Q' },
   { "recursive", no_argument, NULL, 'X' }, 
   { "attr", required_argument, NULL, 'A' }, 
+  { "reparse", no_argument, NULL, 'L' },
   { 0, 0, 0, 0 }
 };
 
@@ -54,6 +56,7 @@ Usage()
   _tprintf(_T("  -y, --streamprobe SRCFILE:Stream             Check if Stream exits on SRCFILE\n"));
   _tprintf(_T("  -Y, --streamwrite text SRCFILE:Stream         Write text to Stream on SRCFILE\n"));
   _tprintf(_T("  -x, --xattr SRCFILE                                  Show extended attributes\n"));
+  _tprintf(_T("  -L, --reparse                                        Operate on Reparse Point\n"));
   _tprintf(_T("\nOptions\n"));
   _tprintf(_T("  -a, --accesstime\n"));
   _tprintf(_T("  -c, --creationtime\n"));
@@ -401,7 +404,7 @@ main(int argc,
     char c = ultragetopt_tunable (
       argc, 
       a_argv, 
-      "wacfb:t:ex:i:p:P:S:y:Y:R:Q:XA:", 
+      "wacfb:t:ex:i:p:P:S:y:Y:R:Q:XA:L", 
       long_options,
       (int*) 0,
       "=",
@@ -484,7 +487,7 @@ main(int argc,
           FILE_SHARE_READ, 
           NULL, 
           OPEN_EXISTING, 
-          FILE_FLAG_BACKUP_SEMANTICS, 
+          FILE_FLAG_BACKUP_SEMANTICS | (gReparse ? FILE_FLAG_OPEN_REPARSE_POINT : 0),
           NULL
           );
 
@@ -521,7 +524,7 @@ main(int argc,
           FILE_SHARE_READ, 
           NULL, 
           OPEN_EXISTING, 
-          FILE_FLAG_BACKUP_SEMANTICS, 
+          FILE_FLAG_BACKUP_SEMANTICS | (gReparse ? FILE_FLAG_OPEN_REPARSE_POINT : 0),
           NULL
           );
 
@@ -649,7 +652,7 @@ main(int argc,
           FILE_SHARE_READ, 
           NULL, 
           OPEN_EXISTING, 
-          FILE_FLAG_BACKUP_SEMANTICS, 
+          FILE_FLAG_BACKUP_SEMANTICS | (gReparse ? FILE_FLAG_OPEN_REPARSE_POINT : 0),
           NULL
           );
 
@@ -687,17 +690,17 @@ main(int argc,
           FILE_SHARE_READ, 
           NULL, 
           OPEN_EXISTING, 
-          FILE_FLAG_BACKUP_SEMANTICS, 
+          FILE_FLAG_BACKUP_SEMANTICS | (gReparse ? FILE_FLAG_OPEN_REPARSE_POINT : 0),
           NULL
           );
 
         if (INVALID_HANDLE_VALUE != ExistingFileHandle)
         {
-          wchar_t StreamData[HUGE_PATH + 10];
+          char StreamData[HUGE_PATH + 10];
           DWORD BytesRead;
           ReadFile(ExistingFileHandle, StreamData, HUGE_PATH, &BytesRead, NULL);
-          StreamData[BytesRead/2 + 1] = 0x00;
-          wprintf (L"%lS\n", StreamData);
+          StreamData[BytesRead] = 0x00;
+          printf ("%s\n", StreamData);
 
           CloseHandle(ExistingFileHandle);
         }
@@ -723,7 +726,7 @@ main(int argc,
           FILE_SHARE_READ,
           NULL, 
           OPEN_ALWAYS, 
-          FILE_FLAG_BACKUP_SEMANTICS, 
+          FILE_FLAG_BACKUP_SEMANTICS | (gReparse ? FILE_FLAG_OPEN_REPARSE_POINT : 0),
           NULL
           );
 
@@ -1149,6 +1152,13 @@ main(int argc,
       case 'X':
       {
         gRecursive = true;
+      }
+      break;
+
+      // --recursive
+      case 'L':
+      {
+        gReparse = true;
       }
       break;
     }
