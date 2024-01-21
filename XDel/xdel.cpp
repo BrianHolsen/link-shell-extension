@@ -8,8 +8,8 @@
 
 void Usage()
 {
-	wprintf(L"Fast recursive directory tree delete utility. (C) 1990-2019 Hermann Schinagl.\n");
-	wprintf(L"Parameter error. Usage: XDEL [drive:][path\\]directory. Version 5.302\n");
+	wprintf(L"Fast recursive directory tree delete utility. (C) 1990-2024 Hermann Schinagl.\n");
+	wprintf(L"Parameter error. Usage: XDEL [drive:][path\\]directory. Version 5.303\n");
 }
 
 // There are two things to take care of when you want to use Unicode:

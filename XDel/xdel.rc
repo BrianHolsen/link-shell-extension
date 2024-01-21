@@ -31,7 +31,7 @@ LANGUAGE LANG_GERMAN, SUBLANG_GERMAN_AUSTRIAN
 #define MAJOR_VERSION 5
 #define MINOR_VERSION 3
 #define PATCH_VERSION 0
-#define HOTFIX_VERSION 1
+#define HOTFIX_VERSION 3
 #include "..\Shared\version\version.rc2"
 
 

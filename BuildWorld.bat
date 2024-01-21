@@ -22,6 +22,13 @@ set MINOR_DUPEMERGE_VERSION=1
 set PATCH_DUPEMERGE_VERSION=0
 set HOTFIX_DUPEMERGE_VERSION=4
 
+REM Set the version info for xdel.exe
+REM
+set MAJOR_XDEL_VERSION=5
+set MINOR_XDEL_VERSION=3
+set PATCH_XDEL_VERSION=0
+set HOTFIX_XDEL_VERSION=3
+
 @echo generating Version info
 REM Generate version info for Shell Extension
 REM
@@ -160,6 +167,16 @@ echo ######## Dupemerge.exe ########
 echo.
 pushd dupemerge
 call PackMedia.bat %MAJOR_DUPEMERGE_VERSION%%MINOR_DUPEMERGE_VERSION%%PATCH_DUPEMERGE_VERSION%%HOTFIX_DUPEMERGE_VERSION%
+popd
+
+@REM xdel.exe
+@REM
+echo.
+echo ######## xdel.exe ######## 
+echo.
+:pack_xdel
+pushd xdel
+call PackMedia.bat %MAJOR_XDEL_VERSION%%MINOR_XDEL_VERSION%%PATCH_XDEL_VERSION%%HOTFIX_XDEL_VERSION%
 popd
 
 @REM Media Upload

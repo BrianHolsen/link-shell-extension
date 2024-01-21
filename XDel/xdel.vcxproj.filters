@@ -15,6 +15,9 @@
     <Filter Include="Test">
       <UniqueIdentifier>{34482a6d-3e40-42c9-916f-40d376b79aca}</UniqueIdentifier>
     </Filter>
+    <Filter Include="bat">
+      <UniqueIdentifier>{45b87d10-44ab-46e9-9094-97d4a5530830}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="StdAfx.cpp">
@@ -34,7 +37,7 @@
     <ClInclude Include="resource.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Shared\ultragetopt.h" >
+    <ClInclude Include="..\Shared\ultragetopt.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -55,6 +58,9 @@
     </None>
     <None Include="XdelAllTest.bat">
       <Filter>Test</Filter>
+    </None>
+    <None Include="PackMedia.bat">
+      <Filter>bat</Filter>
     </None>
   </ItemGroup>
 </Project>

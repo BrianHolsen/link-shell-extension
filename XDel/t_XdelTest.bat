@@ -20,9 +20,7 @@ copy test\resource.h %TESTROOTSRC%\Folder0\F2 > nul
 mkdir %TESTROOTSRC%\Folder0\F3 > nul
 @echo on
 
-pause
-
-REM %XDEL% --reparse %TESTROOTSRC% 
+%XDEL% --reparse %TESTROOTSRC% 
 @echo ErrorLevel == %errorlevel%
 %WHERE% *.* %TESTROOTDST% | sort
 

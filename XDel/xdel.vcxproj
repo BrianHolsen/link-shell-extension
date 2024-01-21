@@ -477,6 +477,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Doc\xdel.html" />
+    <None Include="PackMedia.bat" />
     <None Include="t_Settings.bat" />
     <None Include="t_XdelTest.bat" />
     <None Include="XdelAllTest.bat" />
