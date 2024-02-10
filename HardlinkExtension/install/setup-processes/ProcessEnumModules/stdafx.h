@@ -12,6 +12,7 @@
 #include <set>
 #include <atomic>
 
+typedef LONG	NTSTATUS;
 #include <ntsysteminfo.h>
 
 #include <psapi.h>

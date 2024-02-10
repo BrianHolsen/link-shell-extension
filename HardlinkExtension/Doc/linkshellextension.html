@@ -123,7 +123,7 @@
         <tr>
             <td colspan="2" height="22">
                 <div align="right">
-                    <i>Last Updated December 18 2022, Version 3.9.3.5</i>
+                    <i>Last Updated Februray 11 2024, Version 3.9.3.6</i>
                 </div>
             </td>
         </tr>
@@ -266,7 +266,7 @@
 
                 <b>Silent install</b><br />
                 /S pops up no prompts during install. If the /S switch is used, explorer.exe will be restarted after installation, to make Link Shell Extension
-                active immediately.<br /><br />
+                active immediately.<br /><br /><br />
 
                 <b>Specify Language</b><br />
                 /LANGUAGE passes the language in which LSE shows up. e.g.<br /><br />
@@ -277,7 +277,7 @@
                 Currently <i>English, Chinese, Czech, French, German, Greek, Italian, Japanese, Korean, Polish, Portuguese, Russian, Slovak, Spanish, Swedish, Turkish and Ukrainian</i> are
                 available as valid parameters for the /Language switch.
                 <br />
-                <br />
+                <br /><br />
 
                 <b>Specify Directory</b><br />
                 When using the silent install a directory can also be specified with the /D switch e.g.
@@ -288,7 +288,7 @@
                     <b>HardLinkShellExt_$(platform).exe /S /Language=English /D=C:\Program Files\LSE</b>
                 </span>
                 <br />
-                <br />
+                <br /><br />
 
                 <b>Uninstall</b><br />
                 Link Shell Extension can also be uninstalled silently by issuing
@@ -304,15 +304,25 @@
                 If the /S switch is used during uninstall, explorer.exe will be restarted after uninstallation, to make Link Shell Extension
                 inactive immediately.
                 <br />
-                <br />
+                <br /><br />
 
                 <a name="novcredist"><b>No Check for VcRedist</b><br /></a>
                 On some Windows10 machines, there is no need to install the vcredist, or worse: VcRedist can not be installed, but is somehow already on the system.
                 To overcome this the /noredist switch can be passed via command line. e.g.:<br /><br />
 
-
                 <span class="ascode">
                     <b>HardLinkShellExt_$(platform).exe /noredist</b>
+                </span>
+                <br />
+                <br /><br />
+
+                <a name="noplatform"><b>No Check for platform Support</b><br /></a>
+                ARM64 machines do have a x64 emulation since Windows 11, thus can run x64 binaries. Use the /noplatform switch to avoid the platform check on
+                ARM64 machines and use LSE in x64 emulation mode. e.g.:
+                <br /><br />
+
+                <span class="ascode">
+                    <b>HardLinkShellExt_X64.exe /noplatform</b>
                 </span>
             </td>
         </tr>
@@ -2876,11 +2886,13 @@
 
                     <tr>
                         <td class="history">
-                            <a name="3930">January 16, 2021</a>
+                            <a name="3930">February 11, 2022</a>
                         </td>
                         <td>
-                            Version 3.9.3.5
+                            Version 3.9.3.6
                             <ul>
+                                <!-- 3.9.3.6, 11.2.2024 -->
+                                <li>Added the <a href="#noplatform"> /noplatform switch</a> to the installer.</li>
                                 <!-- 3.9.3.6, 28.11.2022 -->
                                 <li>ln.LSE now maintains its <a href="#winget">winget package</a>.</li>
                                 <!-- 3.9.3.5, 16.01.2021 -->
@@ -3896,7 +3908,7 @@
             </td>
 
             <td class="bodytext">
-                The 3.9.3.x version is a stable version for the <a href="#limitations">supported plattforms.</a>
+                The 3.9.3.x version is a stable version for the <a href="#limitations">supported platforms.</a>
                 <br /><br />
             </td>
         </tr>

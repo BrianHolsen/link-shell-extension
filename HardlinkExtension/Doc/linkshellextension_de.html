@@ -123,7 +123,7 @@
         <tr>
             <td colspan="2" height="22">
                 <div align="right">
-                    <i>Zuletzt erneuert 18 Dezember 2022, Version 3.9.3.5</i>
+                    <i>Zuletzt erneuert 11 Februar 2024, Version 3.9.3.6</i>
                 </div>
             </td>
         </tr>
@@ -190,7 +190,6 @@
 
                     Die Erweiterung erlaubt es dem Benutzer eine oder mehrere Dateien oder Ordner auszuwählen und dann mit der Maus die Erstellung der gewünschten Links -
                     Hardlinks, Junctions oder Symbolische Links - abzuschließen oder im Falle von Ordnern Klone zu erstellen, die aus Hardlinks oder Symbolischen Links bestehen.
-
 
                     LSE wird auf allen Windows-Versionen unterstützt, die NTFS Version, Windows7/8/10,
                     unterstützen. Hardlinks, Junctions und Symbolische Links werden auf FAT-Dateisystemen NICHT unterstützt,
@@ -278,7 +277,7 @@
                 Momentan sind <i>Englisch, Chinesisch, Tschechisch, Französisch, Deutsch, Griechis, Italienisch, Japanisch, Koreanisch, Polisch, Portugisisch, Russisch, Slovakisch, Spanisch, Swedisch, Türkisch and Ukrainisch</i>
                 verfügbare Sprachen als Argument für /Language
                 <br />
-                <br />
+                <br /><br />
 
                 <b>Specify Directory</b><br />
                 Wenn die unbeaufsichtigte Installation verwendet wird, kann ein Installationspfad mit /D spezifiziert werden z.B.
@@ -289,7 +288,7 @@
                     <b>HardLinkShellExt_$(platform).exe /S /Language=English /D=C:\Program Files\LSE</b>
                 </span>
                 <br />
-                <br />
+                <br /><br />
 
                 <b>Uninstall</b><br />
                 LSE kann auch interaktionslos deinstalliert werden, indem man den Befehl
@@ -305,15 +304,25 @@
                 Wenn der /S schalter während der Deinstallation benutzt wird, startet sich Explorer.exe neu, um Link Shell Extension
                 zu deaktivieren.
                 <br />
-                <br />
+                <br /><br />
 
                 <a name="novcredist"><b>No Check for VcRedist</b><br /></a>
                 Bei manchen Windows10 Installationen ist es nicht nötig vcredist zu installieren, oder vcredist kann nicht installiert werden, ist jeodch schon auf dem System.
                 Um dies zu umgehen, kann der /noredist BefehlszeilenSchalter per Kommandozeile übergeben werden. z.B.:<br /><br />
 
-
                 <span class="ascode">
                     <b>HardLinkShellExt_$(platform).exe /noredist</b>
+                </span>
+                <br />
+                <br /><br />
+
+                <a name="noplatform"><b>No Check for Plattform Support</b><br /></a>
+                ARM64 Rechner mit Windows 11 haben eine x64 Emulation, und können daher Intel x64 Binaries ausführen. 
+                Um den Plattform check zu vermeiden und auf ARM64 zu installieren, kann die /noplatform option gewählt werden.
+                z.B.:<br /><br />
+
+                <span class="ascode">
+                    <b>HardLinkShellExt_X64.exe /noplatform</b>
                 </span>
             </td>
         </tr>
@@ -2877,11 +2886,13 @@
 
                     <tr>
                         <td class="history">
-                            <a name="3930">16 Jänner 2021</a>
+                            <a name="3930">11 Februar 2024</a>
                         </td>
                         <td>
-                            Version 3.9.3.5
+                            Version 3.9.3.6
                             <ul>
+                                <!-- 3.9.3.6, 11.2.2024 -->
+                                <li> Die Option <a href="#noplatform"> /noplatform</a> wurde beim Installer hinzugefügt.</li>
                                 <!-- 3.9.3.6, 28.11.2022 -->
                                 <li>ln.LSE kann auch via <a href="#winget">winget package</a> installiert werden.</li>
                                 <!-- 3.9.3.5, 16.01.2021 -->

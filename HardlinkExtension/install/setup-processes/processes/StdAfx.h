@@ -17,7 +17,7 @@
 #include <string>
 #include <set>
 #include <atomic>
-
+typedef LONG	NTSTATUS;
 #include <ntsysteminfo.h>
 
 
@@ -36,6 +36,3 @@ typedef vector<DWORD> _LongList;
 
 //To make it a NSIS Plug-In
 #include "exdll.h"
-
-//{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ will insert additional declarations immediately before the previous line.

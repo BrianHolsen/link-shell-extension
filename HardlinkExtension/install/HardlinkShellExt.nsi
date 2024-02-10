@@ -25,6 +25,7 @@ Var WINDOWS_VERSION
 Var COM_SERVER_PATH
 Var REG_PREFIX_
 Var NO_REDIST
+Var NO_PLATFORM
 
 Name "Link Shell Extension"
 
@@ -495,18 +496,34 @@ Function .onInit
 	StrCmp $0 '' lbl_redist_check 0
   ; MessageBox MB_OK "Redist: '$0'"
   StrCpy $NO_REDIST "1"
-	lbl_redist_check:
+  lbl_redist_check:
+	
+  # Check for /noplatform
+  #
+  StrCpy $NO_PLATFORM "0"
+  Push $2
+  Push '/noplatform'
+  Call StrStr
+  Pop $0
+  StrCmp $0 '' lbl_platform_check 0
+  StrCpy $NO_PLATFORM "noplatcheck"
+  ; MessageBox MB_OK "Platform: '$NO_PLATFORM'"
+  lbl_platform_check:
 	
 
   # Perform redist check
   #
 	StrCmp ${PLATTFORM} 'vc6' lbl_NoPlatRedistCheck
 	StrCmp ${PLATTFORM} 'win32x64' lbl_NoPlatRedistCheck
+	StrCmp $NO_PLATFORM 'noplatcheck' lbl_NoPlatRedistCheck
 
 	# Check for the correct plattform
 	#
 	Processes::CheckPlattform ${PLATTFORM};
 	Pop $R0
+
+
+
 	StrCmp $R0 "1" lbl_plattform_ok
 	  MessageBox MB_OK "This version of Link Shell Extension is not compatible with this plattform. $\r$\nPlease download the properversion from$\r$\n https://schinagl.priv.at/nt/hardlinkshellext/linkshellextension.html#download";
 	  Abort;

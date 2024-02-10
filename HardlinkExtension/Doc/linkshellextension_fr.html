@@ -277,7 +277,7 @@
                 Actuellement les langues utilisables avec le paramètre /Language sont :
                 <i>English, Chinese, Czech, French, German, Greek, Italian, Japanese, Korean, Polish, Portuguese, Russian, Slovak, Spanish, Swedish, Turkish et Ukrainian</i>
                 <br />
-                <br />
+                <br /><br />
 
                 <b>Spécification d'un répertoire</b><br />
                 Quand on utilise une installation silencieuse, on peut entrer un répertoire d'installation par le paramètre /D par exemple :
@@ -288,7 +288,7 @@
                     <b>HardLinkShellExt_$(platform).exe /S /Language=English /D=C:\Program Files\LSE</b>
                 </span>
                 <br />
-                <br />
+                <br /><br />
 
                 <b>Désinstallation</b><br />
                 Link Shell Extension peut aussi se désinstaller silencieusement en faisant
@@ -304,15 +304,25 @@
                 Si on utilise le paramètre /S lors d'une désinstallation, explorer.exe sera redémarré en fin de désinstallation, afin de désactiver
                 immédiatement Link Shell Extension.
                 <br />
-                <br />
+                <br /><br />
 
                 <a name="novcredist"><b>Pas de vérification de VcRedist</b><br /></a>
                 Sur certaines machines Windows10, il n'est pas nécessaire d'installer vcredist, ou pire : VcRedist ne peut pas être installé, mais est en quelque sorte déjà dans le système.
                 Pour s'en affranchir, le commutateur /noredist peut être passé en ligne de commande. par ex :<br /><br />
 
-
                 <span class="ascode">
                     <b>HardLinkShellExt_$(platform).exe /noredist</b>
+                </span>
+                <br />
+                <br /><br />
+
+                <a name="noplatform"><b>Pas de vérification de la prise en charge de la plate-forme</b><br /></a>
+                Depuis Windows 11, les machines ARM64 disposent d'une émulation x64 et peuvent donc exécuter des binaires x64. Utilisez le commutateur /noplatform pour éviter la vérification de la plate-forme sur 
+                les machines ARM64 et utilisez alors LSE en mode d'émulation x64. par exemple :                
+                <br /><br />
+
+                <span class="ascode">
+                    <b>HardLinkShellExt_X64.exe /noplatform</b>
                 </span>
             </td>
         </tr>
@@ -2881,6 +2891,8 @@
                         <td>
                             Version 3.9.3.6
                             <ul>
+                                <!-- 3.9.3.6, 11.2.2024 -->
+                                <li>Added the <a href="#noplatform"> /noplatform switch</a> to the installer.</li>
                                 <!-- 3.9.3.6, 28.11.2022 -->
                                 <li>ln.LSE maintient maintenant son propre <a href="#winget">package winget</a>.</li>
                                 <!-- 3.9.3.5, 16.01.2021 -->
